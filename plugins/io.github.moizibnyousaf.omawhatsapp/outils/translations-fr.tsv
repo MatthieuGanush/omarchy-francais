@@ -1,0 +1,750 @@
+10 lines	10 lignes
+12-hour	12 heures
+1 group in common	1 groupe en commun
+1 message	1 message
+1 unread message	1 message non lu
+1 vote	1 vote
+24-hour	24 heures
+3 new	3 nouveaux
+4 lines	4 lignes
+6 lines	6 lignes
+8 lines	8 lignes
+About: 	Infos : 
+About the business	À propos de l'entreprise
+Account name, e.g. work	Nom du compte, ex. travail
+Activities	Activités
+Add 	Ajouter 
+Add	Ajouter
+Add a caption	Ajouter une légende
+Add a message (optional)	Ajouter un message (facultatif)
+Add another chat or number	Ajouter une autre discussion ou un numéro
+Add a tag	Ajouter une étiquette
+Add audio	Ajouter un audio
+Add a WebP sticker	Ajouter un sticker WebP
+Add between 2 and 12 poll options.	Ajoutez entre 2 et 12 options de sondage.
+Add by number, with country code	Ajouter par numéro, avec l'indicatif du pays
+Add documents	Ajouter des documents
+Add photos and videos	Ajouter des photos et vidéos
+Address	Adresse
+Admin	Admin
+All	Toutes
+Allow multiple answers	Autoriser plusieurs réponses
+All settings	Tous les réglages
+A local badge on the bar icon.	Une pastille locale sur l'icône de la barre.
+An alias only this computer shows	Un alias visible uniquement sur cet ordinateur
+A newer version is available.	Une nouvelle version est disponible.
+A new version of OmaWhatsApp is available · open settings to update	Une nouvelle version d'OmaWhatsApp est disponible · ouvrez les réglages pour mettre à jour
+Animals & nature	Animaux et nature
+Approve	Approuver
+Apr	avr.
+A private voice draft could not be created.	Impossible de créer le brouillon vocal privé.
+Archive chat	Archiver la discussion
+Archived	Archivées
+Ask something	Posez une question
+Asks WhatsApp for the description and who may send or edit; sync pauses for a few seconds.	Demande à WhatsApp la description et qui peut écrire ou modifier ; la synchro se met en pause quelques secondes.
+Asks WhatsApp whether this number has an account. Nothing is sent.	Demande à WhatsApp si ce numéro a un compte. Rien n'est envoyé.
+A small reply view opens by the bar on that chat; Esc closes it.	Une petite fenêtre de réponse s'ouvre près de la barre sur cette discussion ; Échap la ferme.
+A terminal will open for the QR code. Reuse the same name to resume an unfinished link.	Un terminal va s'ouvrir pour le QR code. Réutilisez le même nom pour reprendre une association inachevée.
+At login OmaWhatsApp stays closed until you open it from the bar or with Super+Shift+W.	À la connexion, OmaWhatsApp reste fermé jusqu'à ce que vous l'ouvriez depuis la barre ou avec Super+Shift+W.
+Attach · Ctrl+O files · Ctrl+Shift+O photos and videos	Joindre · Ctrl+O fichiers · Ctrl+Shift+O photos et vidéos
+Attach documents · photos and videos	Joindre des documents · photos et vidéos
+Attach files · Ctrl+O	Joindre des fichiers · Ctrl+O
+Attachment	Pièce jointe
+At the end	À la fin
+At the top	En haut
+Aug	août
+Back · Esc	Retour · Échap
+Background sync	Synchro en arrière-plan
+Background sync: a user service keeps your chats current while the app is closed. It runs sandboxed and needs no password.	Synchro en arrière-plan : un service utilisateur garde vos discussions à jour quand l'app est fermée. Il tourne isolé et ne demande aucun mot de passe.
+Background sync stops, and the services, the command and the agent skill are removed. Your linked device, chats and settings stay.	La synchro en arrière-plan s'arrête, et les services, la commande et la compétence agent sont supprimés. Votre appareil associé, vos discussions et vos réglages restent.
+Back to chats	Retour aux discussions
+Back to chats · Esc	Retour aux discussions · Échap
+Back to people	Retour aux personnes
+Back to search	Retour à la recherche
+Back to the conversation · Esc	Retour à la conversation · Échap
+Before removing the app: stops background sync and removes what the setup added outside the plugin folder.	Avant de supprimer l'app : arrête la synchro en arrière-plan et retire ce que l'installation a ajouté hors du dossier du plugin.
+Bold	Gras
+Bold or italic for the selected text (Ctrl+B without a selection hides the chat list)	Gras ou italique pour le texte sélectionné (Ctrl+B sans sélection masque la liste des discussions)
+Bulleted list	Liste à puces
+Cancel	Annuler
+Cancel edit · Esc	Annuler la modification · Échap
+Cancel · Esc	Annuler · Échap
+Cancel reply	Annuler la réponse
+Cancel reply · Esc	Annuler la réponse · Échap
+Category	Catégorie
+Chat actions	Actions de la discussion
+Chat details	Détails de la discussion
+Chat list density	Densité de la liste
+Chat photo cache	Cache des photos de profil
+Chat photos	Photos de profil
+Chat photos are current	Les photos de profil sont à jour
+Chat photos could not be refreshed	Impossible d'actualiser les photos de profil
+Chat photos could not be refreshed.	Impossible d'actualiser les photos de profil.
+Chats	Discussions
+Chats could not be read.	Impossible de lire les discussions.
+Check 	Vérifier 
+Check again	Vérifier à nouveau
+Check for updates	Rechercher des mises à jour
+Check for updates when opening the app	Rechercher des mises à jour à l'ouverture
+Checking 	Vérification de 
+Checking…	Vérification…
+Checking a number asks WhatsApp once; nothing is sent until you press Enter.	Vérifier un numéro interroge WhatsApp une fois ; rien n'est envoyé avant d'appuyer sur Entrée.
+Checking for updates…	Recherche de mises à jour…
+Checking link…	Vérification du lien…
+Checking whether 	Vérification que 
+Checks the most recent chats for new photos. Sync pauses for up to 20 seconds.	Cherche de nouvelles photos dans les discussions récentes. La synchro se met en pause jusqu'à 20 secondes.
+Check whether a newer version is available.	Vérifier si une nouvelle version est disponible.
+Choose a chat	Choisissez une discussion
+Choose a chat before recording a voice note.	Choisissez une discussion avant d'enregistrer un message vocal.
+Choose at least one person.	Choisissez au moins une personne.
+Choosing files needs zenity (omarchy pkg add zenity). Paste or drag files in meanwhile.	Choisir des fichiers nécessite zenity (omarchy pkg add zenity). En attendant, collez ou glissez les fichiers.
+Choosing files needs zenity. Paste or drag files in meanwhile.	Choisir des fichiers nécessite zenity. En attendant, collez ou glissez les fichiers.
+Clear	Effacer
+Clear all notification badges? Messages stay unread and no read receipts are sent.	Effacer toutes les pastilles ? Les messages restent non lus et aucune confirmation de lecture n'est envoyée.
+Clear the badges · the chats stay unread	Effacer les pastilles · les discussions restent non lues
+Clicking a notification opens the full app on that chat.	Cliquer sur une notification ouvre l'app complète sur cette discussion.
+Click or press Space to play	Cliquez ou appuyez sur Espace pour lire
+Click Show QR code: a terminal opens with the code.	Cliquez sur Afficher le QR code : un terminal s'ouvre avec le code.
+Click to download	Cliquez pour télécharger
+Closed · sync paused	Fermé · synchro en pause
+Close · Esc	Fermer · Échap
+Comfortable	Confortable
+Compact	Compacte
+Confirm: leave this group	Confirmer : quitter ce groupe
+Confirm: remove from group	Confirmer : retirer du groupe
+Confirm reset	Confirmer la réinitialisation
+Confirm the update in the terminal that opened; the shell restarts when it is done.	Confirmez la mise à jour dans le terminal ouvert ; le shell redémarre une fois terminé.
+Connected	Connecté
+Connecting…	Connexion…
+Contact	Contact
+Contact info	Infos du contact
+Contacts	Contacts
+Copy	Copier
+Copy invite link	Copier le lien d'invitation
+Copy link	Copier le lien
+Copy number	Copier le numéro
+Copy text	Copier le texte
+Could not check	Vérification impossible
+Could not check for updates. Try again when connected.	Impossible de rechercher les mises à jour. Réessayez une fois connecté.
+Create	Créer
+Created 	Créé le 
+Create poll	Créer un sondage
+Creating…	Création…
+Cut	Couper
+Dec	déc.
+Delete 	Supprimer 
+Delete	Supprimer
+Delete 1 message?	Supprimer 1 message ?
+Delete for everyone	Supprimer pour tout le monde
+Delete for me	Supprimer pour moi
+Delete this message for everyone?	Supprimer ce message pour tout le monde ?
+Delete this message for you?	Supprimer ce message pour vous ?
+Delivered	Distribué
+Delivered to everyone	Distribué à tous
+Description	Description
+Desktop notifications	Notifications du bureau
+Discard	Abandonner
+Discarding…	Abandon…
+Discard voice draft	Abandonner le brouillon vocal
+Dismiss as admin	Retirer des admins
+Docs	Docs
+Document	Document
+Download 	Télécharger 
+Download · 	Télécharger · 
+Downloaded media	Médias téléchargés
+Downloading…	Téléchargement…
+Downloading video…	Téléchargement de la vidéo…
+Download received media automatically	Télécharger automatiquement les médias reçus
+Download to preview	Télécharger pour prévisualiser
+Draft: 	Brouillon : 
+Drag to resize · double-click for the automatic width	Glisser pour redimensionner · double-clic pour la largeur automatique
+Edit	Modifier
+Editing message	Modification du message
+Email	E-mail
+Emoji	Émoji
+Enter sends messages	Entrée envoie les messages
+Enter sends · Shift+Enter adds a line	Entrée envoie · Shift+Entrée ajoute une ligne
+Enter · Shift+Enter	Entrée · Shift+Entrée
+External media could not be opened.	Impossible d'ouvrir le média externe.
+Fast, local, and keyboard-first.	Rapide, local et pensé pour le clavier.
+Feb	févr.
+Fetch recent chat photos from WhatsApp when you need them.	Récupérer les photos de profil récentes depuis WhatsApp quand vous en avez besoin.
+Find in this conversation	Rechercher dans cette conversation
+Finish linking 	Terminez l'association de 
+Finish or discard the current voice draft first.	Terminez ou abandonnez d'abord le brouillon vocal en cours.
+Finish or discard the voice draft for 	Terminez ou abandonnez le brouillon vocal pour 
+Finish the current WhatsApp action before recording	Terminez l'action WhatsApp en cours avant d'enregistrer
+Finish the current WhatsApp action before recording.	Terminez l'action WhatsApp en cours avant d'enregistrer.
+Finish the current WhatsApp action before sending a sticker.	Terminez l'action WhatsApp en cours avant d'envoyer un sticker.
+First message	Premier message
+First option\nSecond option	Première option\nDeuxième option
+Flags	Drapeaux
+Food & drink	Nourriture et boissons
+Forward 	Transférer 
+Forward	Transférer
+Forward message	Transférer le message
+For you, they disappear from this device's history. For everyone, WhatsApp may refuse older ones; the rest are gone for everyone.	Pour vous, ils disparaissent de l'historique de cet appareil. Pour tout le monde, WhatsApp peut refuser les plus anciens ; les autres disparaissent pour tous.
+Fri	ven.
+Friday	vendredi
+Get invite link	Obtenir le lien d'invitation
+GIF · paused	GIF · en pause
+GIF paused	GIF en pause
+GIF · playing	GIF · en lecture
+Go online	Passer en ligne
+Go online to send	Passez en ligne pour envoyer
+Go to a chat by name	Aller à une discussion par son nom
+Go to chat	Aller à la discussion
+Group · 	Groupe · 
+Group	Groupe
+Group info	Infos du groupe
+Group members could not be read.	Impossible de lire les membres du groupe.
+Group name	Nom du groupe
+Groups	Groupes
+Hide chat details	Masquer les détails
+Hide chat list · Ctrl+B	Masquer la liste · Ctrl+B
+Hide or show the chat list	Masquer ou afficher la liste des discussions
+Hours	Heures
+Image	Image
+Image unavailable	Image indisponible
+Inline code	Code en ligne
+Install	Installer
+Install in a terminal	Installer dans un terminal
+Install wacli	Installer wacli
+Install zenity	Installer zenity
+Instant and native	Instantané et natif
+Italic	Italique
+It is a linked device, like WhatsApp Web: your phone stays the main one.	C'est un appareil associé, comme WhatsApp Web : votre téléphone reste l'appareil principal.
+It will disappear from this device's WhatsApp history.	Il disparaîtra de l'historique WhatsApp de cet appareil.
+Jan	janv.
+Join	Rejoindre
+Join a group	Rejoindre un groupe
+Joining…	Connexion au groupe…
+Jul	juil.
+Jump to latest · 	Aller aux derniers · 
+Jump to latest	Aller aux derniers
+Jun	juin
+Keeps the local mirror current while the app is closed.	Garde la copie locale à jour quand l'app est fermée.
+Leave group	Quitter le groupe
+Left as they were, because they were changed after the app wrote them or are not the app's: 	Laissés tels quels, car modifiés après leur écriture par l'app ou n'appartenant pas à l'app : 
+Let AI agents use WhatsApp	Laisser les agents IA utiliser WhatsApp
+Link	Lien
+Link again	Associer à nouveau
+Link again to receive new messages.	Associez à nouveau pour recevoir les nouveaux messages.
+Link another account	Associer un autre compte
+Link another WhatsApp account	Associer un autre compte WhatsApp
+Linked · connected	Associé · connecté
+Linked · sync is starting	Associé · la synchro démarre
+Link expired	Association expirée
+Linking…	Association…
+Linking is still open in the terminal	L'association est toujours ouverte dans le terminal
+Linking was not finished; use the same name to resume	L'association n'est pas terminée ; utilisez le même nom pour reprendre
+Links	Liens
+Link this account again before changing WhatsApp.	Associez à nouveau ce compte avant de modifier WhatsApp.
+Link your WhatsApp	Associez votre WhatsApp
+Link your WhatsApp to start	Associez votre WhatsApp pour commencer
+Live location	Position en direct
+Load group settings	Charger les réglages du groupe
+Loading local messages…	Chargement des messages locaux…
+Loading older messages…	Chargement des messages plus anciens…
+Loading stickers…	Chargement des stickers…
+Location	Position
+Make group admin	Nommer admin du groupe
+Manage group	Gérer le groupe
+Mar	mars
+Mark as read	Marquer comme lu
+Mark as unread	Marquer comme non lu
+Mark chats read when you open them	Marquer les discussions comme lues à l'ouverture
+Mark chats read when you reply	Marquer les discussions comme lues quand vous répondez
+Marking a chat read only syncs your phone and linked devices. OmaWhatsApp never sends read receipts, so contacts are not told.	Marquer une discussion comme lue ne synchronise que votre téléphone et vos appareils associés. OmaWhatsApp n'envoie jamais de confirmation de lecture : vos contacts ne sont pas prévenus.
+May	mai
+Measuring local storage…	Mesure du stockage local…
+Media	Médias
+Media is downloaded only when you open it.	Les médias ne sont téléchargés qu'à l'ouverture.
+Media, links and docs	Médias, liens et docs
+Message 	Écrire à 
+Message	Message
+Message box grows up to	La zone de saisie s'agrandit jusqu'à
+Message could not be sent	Le message n'a pas pu être envoyé
+Messages	Messages
+Messages and popups arrive as soon as you log in.	Les messages et notifications arrivent dès la connexion.
+Messages could not be read.	Impossible de lire les messages.
+Messages go only to WhatsApp itself: there is no OmaWhatsApp server or account.	Les messages passent uniquement par WhatsApp : il n'y a ni serveur ni compte OmaWhatsApp.
+Mon	lun.
+Monday	lundi
+Monospace	Chasse fixe
+More	Plus
+Mute	Couper le son
+Muted; the bar still counts unread chats. Right-click the bar icon to turn them back on.	En sourdine ; la barre compte toujours les discussions non lues. Clic droit sur l'icône de la barre pour les réactiver.
+Mute notifications	Couper les notifications
+Name	Nom
+Name the group	Nommez le groupe
+Name to sign with	Nom de signature
+Needed to see who is online, their last seen, and who is typing: WhatsApp only sends them to a device shown online. It also shows the chat when you are typing or recording a voice note. Needs a wacli build that follows presence.	Nécessaire pour voir qui est en ligne, la dernière connexion et qui écrit : WhatsApp ne les envoie qu'à un appareil affiché en ligne. Montre aussi à la discussion quand vous écrivez ou enregistrez un vocal. Nécessite une version de wacli qui suit la présence.
+Needs notify-send from libnotify.	Nécessite notify-send (libnotify).
+New chat · 	Nouvelle discussion · 
+New chat	Nouvelle discussion
+New chat · Ctrl+N	Nouvelle discussion · Ctrl+N
+New chat · opens the full app	Nouvelle discussion · ouvre l'app complète
+New group	Nouveau groupe
+New messages are not arriving.	Les nouveaux messages n'arrivent pas.
+Next	Suivant
+No about text.	Pas de texte d'infos.
+No agent can use WhatsApp through this app.	Aucun agent ne peut utiliser WhatsApp via cette app.
+No archived chats	Aucune discussion archivée
+No chat matches	Aucune discussion ne correspond
+No chat photos available	Aucune photo de profil disponible
+No contact matches. Type a number with its country code to reach someone new.	Aucun contact ne correspond. Tapez un numéro avec l'indicatif du pays pour joindre quelqu'un de nouveau.
+No contacts synced yet. Type a number with its country code.	Aucun contact synchronisé pour l'instant. Tapez un numéro avec l'indicatif du pays.
+No documents in this chat on this computer	Aucun document de cette discussion sur cet ordinateur
+No emoji matches	Aucun émoji ne correspond
+No groups	Aucun groupe
+No linked account yet.	Aucun compte associé pour l'instant.
+No links in this chat on this computer	Aucun lien de cette discussion sur cet ordinateur
+No local messages in this chat	Aucun message local dans cette discussion
+No local messages yet	Aucun message local pour l'instant
+No longer on WhatsApp	N'est plus sur WhatsApp
+No matching chats	Aucune discussion correspondante
+No pending requests	Aucune demande en attente
+No photos or videos in this chat on this computer	Aucune photo ou vidéo de cette discussion sur cet ordinateur
+No stickers on this computer yet. Stickers you send or receive show up here.	Aucun sticker sur cet ordinateur pour l'instant. Les stickers envoyés ou reçus apparaîtront ici.
+Notification acknowledgement failed.	Échec de l'accusé de notification.
+Notifications	Notifications
+Notifications arrive without sound.	Les notifications arrivent sans son.
+Not linked	Non associé
+Not on WhatsApp	Pas sur WhatsApp
+Not sent · right-click to try again	Non envoyé · clic droit pour réessayer
+No unread chats	Aucune discussion non lue
+Nov	nov.
+Numbered list	Liste numérotée
+Numbers need the country code, like +55 for Brazil	Les numéros ont besoin de l'indicatif du pays, comme +33 pour la France
+N unread messages	N messages non lus
+Objects	Objets
+Oct	oct.
+Off by default. Checking photos pauses sync for up to 20 seconds, and messages or read state that arrive meanwhile never reach this computer.	Désactivé par défaut. Vérifier les photos met la synchro en pause jusqu'à 20 secondes, et les messages ou états de lecture arrivés pendant ce temps n'atteignent jamais cet ordinateur.
+Offline archive is read-only	L'archive hors ligne est en lecture seule
+Offline · local archive	Hors ligne · archive locale
+Offline mode is on. Go online before sending or changing WhatsApp state.	Le mode hors ligne est activé. Passez en ligne avant d'envoyer ou de modifier WhatsApp.
+Offline mode is on. Go online to ask WhatsApp.	Le mode hors ligne est activé. Passez en ligne pour interroger WhatsApp.
+Offline mode is on. Go online to change WhatsApp.	Le mode hors ligne est activé. Passez en ligne pour modifier WhatsApp.
+Offline mode is on. Go online to check a number with WhatsApp.	Le mode hors ligne est activé. Passez en ligne pour vérifier un numéro avec WhatsApp.
+Offline mode is on. Go online to manage the group.	Le mode hors ligne est activé. Passez en ligne pour gérer le groupe.
+Off unless you turn it on. Adds the agent skill and the MCP server; agents ask before they change anything on WhatsApp. You can change this later in Settings.	Désactivé sauf si vous l'activez. Ajoute la compétence agent et le serveur MCP ; les agents demandent avant de modifier quoi que ce soit sur WhatsApp. Modifiable plus tard dans les Réglages.
+OmaWhatsApp could not change that setting.	OmaWhatsApp n'a pas pu modifier ce réglage.
+OmaWhatsApp could not connect.	OmaWhatsApp n'a pas pu se connecter.
+OmaWhatsApp could not finish setting up.	OmaWhatsApp n'a pas pu terminer l'installation.
+OmaWhatsApp is closed · click to open	OmaWhatsApp est fermé · cliquez pour ouvrir
+OmaWhatsApp is installed and turned on. Setting up turns it off (it is not deleted), since only one of the two can run.	OmaWhatsApp est installé et activé. L'installation le désactive (sans le supprimer), car un seul des deux peut tourner.
+OmaWhatsApp is reconnecting	OmaWhatsApp se reconnecte
+OmaWhatsApp · no unread chats	OmaWhatsApp · aucune discussion non lue
+OmaWhatsApp · offline archive	OmaWhatsApp · archive hors ligne
+OmaWhatsApp · reconnecting	OmaWhatsApp · reconnexion
+OmaWhatsApp · restart the shell to finish updating	OmaWhatsApp · redémarrez le shell pour terminer la mise à jour
+OmaWhatsApp settings could not be saved.	Impossible d'enregistrer les réglages d'OmaWhatsApp.
+OmaWhatsApp talks to WhatsApp through wacli, which is not installed yet. Install it with Omarchy's package manager:	OmaWhatsApp communique avec WhatsApp via wacli, qui n'est pas encore installé. Installez-le avec le gestionnaire de paquets d'Omarchy :
+One more piece first	Encore une étape
+One short sound per batch of new messages; silent while Omarchy's do not disturb is on.	Un court son par lot de nouveaux messages ; silencieux quand le mode Ne pas déranger d'Omarchy est actif.
+Only admins edit group info	Seuls les admins modifient les infos du groupe
+Only admins send messages	Seuls les admins envoient des messages
+On this computer since 	Sur cet ordinateur depuis le 
+On your phone, open WhatsApp → Settings → Linked devices → Link a device.	Sur votre téléphone, ouvrez WhatsApp → Paramètres → Appareils connectés → Connecter un appareil.
+Open 	Ouvrir 
+Open	Ouvrir
+Opening microphone…	Ouverture du micro…
+Open in the full app · O	Ouvrir dans l'app complète · O
+Open linking terminal	Ouvrir le terminal d'association
+Open or close OmaWhatsApp	Ouvrir ou fermer OmaWhatsApp
+Open the full app · O	Ouvrir l'app complète · O
+Open the full client only when you need the whole toolbox.	Ouvrez le client complet seulement quand vous avez besoin de tous les outils.
+Open the selected media	Ouvrir le média sélectionné
+Open to receive new messages.	Ouvrez pour recevoir les nouveaux messages.
+Option 	Option 
+Options · one per line (2–12)	Options · une par ligne (2 à 12)
+Owner	Propriétaire
+Participant actions	Actions sur le participant
+Paste	Coller
+Paste text, an image or a file	Coller du texte, une image ou un fichier
+Paste the invite link someone sent you.	Collez le lien d'invitation qu'on vous a envoyé.
+Paused · nothing is sent or received	En pause · rien n'est envoyé ni reçu
+Paused. The local archive stays readable; nothing is sent or received.	En pause. L'archive locale reste lisible ; rien n'est envoyé ni reçu.
+Pause preview	Mettre l'aperçu en pause
+Pending join requests	Demandes d'adhésion en attente
+People & body	Personnes et corps
+Photo	Photo
+Photos, videos, audio and documents are saved as they arrive.	Photos, vidéos, audios et documents sont enregistrés dès leur arrivée.
+Pick messages	Sélectionner des messages
+Pin	Épingler
+Pin chat	Épingler la discussion
+Pinned	Épinglées
+Playback speed	Vitesse de lecture
+Played	Écouté
+Played by everyone	Écouté par tous
+Popups for this account's chats, as set under Notifications.	Notifications pour les discussions de ce compte, selon les réglages de Notifications.
+Preparing preview…	Préparation de l'aperçu…
+Preparing video…	Préparation de la vidéo…
+Preview unavailable · click to open	Aperçu indisponible · cliquez pour ouvrir
+Preview voice note	Écouter le message vocal
+Private popups hide chat names, message text and photos. Right-click the bar icon to mute everything.	Les notifications privées masquent noms, textes et photos. Clic droit sur l'icône de la barre pour tout couper.
+Question	Question
+Quit	Quitter
+Quit OmaWhatsApp	Quitter OmaWhatsApp
+Quote	Citation
+React	Réagir
+Read	Lu
+Read by everyone	Lu par tous
+Reading local history…	Lecture de l'historique local…
+Reading settings…	Lecture des réglages…
+Reading this account’s status.	Lecture de l'état de ce compte.
+Reading this chat's history…	Lecture de l'historique de la discussion…
+Receives this account's messages while the app is closed.	Reçoit les messages de ce compte quand l'app est fermée.
+Recent	Récentes
+Recent chats in the bar dropdown	Discussions récentes dans le menu de la barre
+Record a voice note	Enregistrer un message vocal
+Record a voice note · Ctrl+Shift+V	Enregistrer un message vocal · Ctrl+Shift+V
+Recording voice note	Enregistrement du message vocal
+Refresh	Actualiser
+Refresh chat photos	Actualiser les photos de profil
+Refresh chat photos automatically	Actualiser automatiquement les photos de profil
+Refresh chat photos now	Actualiser les photos de profil maintenant
+Refreshing…	Actualisation…
+Refreshing chat photos…	Actualisation des photos de profil…
+Refreshing recent chat photos…	Actualisation des photos de profil récentes…
+Reject	Refuser
+Remove	Retirer
+Remove…	Retirer…
+Remove attachment	Retirer la pièce jointe
+Remove from group	Retirer du groupe
+Remove from this computer	Retirer de cet ordinateur
+Remove it from this computer?	Le retirer de cet ordinateur ?
+Remove local chat	Supprimer la discussion locale
+Remove local chat?	Supprimer la discussion locale ?
+Remove local chat…	Supprimer la discussion locale…
+Remove OmaWhatsApp	Supprimer OmaWhatsApp
+Remove the app…	Supprimer l'app…
+Remove the app too	Supprimer aussi l'app
+Reply	Répondre
+Reply from the bar when clicking a notification	Répondre depuis la barre en cliquant sur une notification
+Reply here · Enter	Répondre ici · Entrée
+Replying clears the unread count, as it does on the phone.	Répondre remet le compteur de non-lus à zéro, comme sur le téléphone.
+Replying to 	Réponse à 
+Reset link	Réinitialiser le lien
+Restart the shell to finish updating	Redémarrez le shell pour terminer la mise à jour
+Resume	Reprendre
+Review the draft, then send or discard it.	Relisez le brouillon, puis envoyez-le ou abandonnez-le.
+Runs omarchy plugin remove 	Lance omarchy plugin remove 
+Sat	sam.
+Saturday	samedi
+Save	Enregistrer
+Save as…	Enregistrer sous…
+Saved as 	Enregistré sous 
+Save description	Enregistrer la description
+Save the alias	Enregistrer l'alias
+Scan it with the phone. This window fills in by itself; the first sync can take a few minutes.	Scannez-le avec le téléphone. Cette fenêtre se remplit toute seule ; la première synchro peut prendre quelques minutes.
+Scan the QR code in the terminal that opens.	Scannez le QR code dans le terminal qui s'ouvre.
+Scan the QR code in the terminal with your phone	Scannez le QR code du terminal avec votre téléphone
+Search	Rechercher
+Search a name or type a number	Cherchez un nom ou tapez un numéro
+Search chats	Rechercher
+Search chats or type a number	Nom ou numéro
+Search emoji	Rechercher un émoji
+Search messages	Rechercher
+Search messages · Ctrl+F	Rechercher des messages · Ctrl+F
+Search people to add	Rechercher des personnes à ajouter
+Select all	Tout sélectionner
+Select one	Un seul choix
+Select one or more	Un ou plusieurs choix
+Send	Envoyer
+Send · Ctrl+Enter	Envoyer · Ctrl+Entrée
+Send · Enter	Envoyer · Entrée
+Sending 	Envoi de 
+Sending…	Envoi…
+Sending voice note…	Envoi du message vocal…
+Send mentions as a text message; attachment captions cannot tag people yet.	Envoyez les mentions dans un message texte ; les légendes ne peuvent pas encore identifier des personnes.
+Send · new line	Envoyer · nouvelle ligne
+Send or clear the current draft before recording a voice note	Envoyez ou effacez le brouillon avant d'enregistrer un vocal
+Send or clear the current draft before recording a voice note.	Envoyez ou effacez le brouillon avant d'enregistrer un vocal.
+Send poll	Envoyer le sondage
+Sends as soon as the current WhatsApp action finishes	Part dès que l'action WhatsApp en cours se termine
+Send to 	Envoyer à 
+Send voice note	Envoyer le message vocal
+Sent	Envoyé
+Sent · saving it on this computer	Envoyé · enregistrement sur cet ordinateur
+Sep	sept.
+Set it up on this computer	L'installer sur cet ordinateur
+Settings	Réglages
+Settings live in a private preferences file on this device. Chats stay in wacli's local mirror; nothing here sends chat data anywhere.	Les réglages sont dans un fichier privé sur cet appareil. Les discussions restent dans la copie locale de wacli ; rien ici n'envoie de données nulle part.
+Setting up…	Installation…
+Setting up adds, in your home folder only:	L'installation ajoute, uniquement dans votre dossier personnel :
+Set up	Installer
+Shift+Enter adds a line.	Shift+Entrée ajoute une ligne.
+Show all chats	Afficher toutes les discussions
+Show chat list · Ctrl+B	Afficher la liste · Ctrl+B
+Show contact and group photos in the list and the conversation header.	Afficher les photos des contacts et groupes dans la liste et l'en-tête de conversation.
+Show me online while OmaWhatsApp has focus	M'afficher en ligne quand OmaWhatsApp est au premier plan
+Show only unread chats	Afficher seulement les non lues
+Show QR code	Afficher le QR code
+Show the card	Afficher la fiche
+Sign it	Signer
+Sign my messages	Signer mes messages
+Silent. Its chats still count in the bar and the list.	Silencieux. Ses discussions comptent toujours dans la barre et la liste.
+Skip once	Ignorer une fois
+Smileys & emotion	Smileys et émotions
+Some are not yours, so they can only be deleted for you.	Certains ne sont pas à vous : ils ne peuvent être supprimés que pour vous.
+Sound	Son
+Source	Source
+Space	Espace
+Space: play/pause	Espace : lecture/pause
+Star	Mettre en favori
+Start a new chat	Démarrer une discussion
+Start of this computer's copy of the chat	Début de la copie de cette discussion sur cet ordinateur
+Start with the system	Lancer au démarrage
+Step back	Revenir
+Sticker	Sticker
+Sticker ready — no caption	Sticker prêt — sans légende
+Stickers	Stickers
+Stickers cannot have captions; send the text separately.	Les stickers n'ont pas de légende ; envoyez le texte séparément.
+Stop and review	Arrêter et réécouter
+Stops receiving messages, popups and showing you online until you open it again. Ctrl+Q in the app.	Arrête la réception des messages, les notifications et la présence en ligne jusqu'à la prochaine ouverture. Ctrl+Q dans l'app.
+Storage details appear once the account is ready.	Le détail du stockage s'affiche une fois le compte prêt.
+Strikethrough	Barré
+Strikethrough or monospace; the formatting button has lists, quotes and code	Barré ou chasse fixe ; le bouton de mise en forme propose listes, citations et code
+Sun	dim.
+Sunday	dimanche
+Symbols	Symboles
+Syncing	Synchronisation
+Syncing your chats…	Synchronisation de vos discussions…
+Sync paused · 	Synchro en pause · 
+Sync resumes when this finishes.	La synchro reprend une fois terminé.
+Sync stopped	Synchro arrêtée
+System	Système
+System follows your locale.	Système suit votre langue.
+Tags	Étiquettes
+That account is still loading. Try again in a moment.	Ce compte est encore en chargement. Réessayez dans un instant.
+The agent skill and the MCP server are installed; agents ask before they change anything on WhatsApp.	La compétence agent et le serveur MCP sont installés ; les agents demandent avant de modifier quoi que ce soit sur WhatsApp.
+The bar dropdown can send now.	Le menu de la barre peut envoyer maintenant.
+The chat on screen is read, including messages that arrive while it is open.	La discussion affichée est lue, y compris les messages qui arrivent pendant qu'elle est ouverte.
+The chat starts with this message. Enter sends, Shift+Enter adds a line.	La discussion commence avec ce message. Entrée envoie, Shift+Entrée ajoute une ligne.
+The clipboard could not be read.	Impossible de lire le presse-papiers.
+The compact client can send now	Le client compact peut envoyer maintenant
+The current voice-note action is still finishing.	L'action en cours sur le message vocal se termine.
+The first sync can take a few minutes. Chats appear here as they arrive; keep the phone online.	La première synchro peut prendre quelques minutes. Les discussions apparaissent ici au fur et à mesure ; gardez le téléphone en ligne.
+The full app shows a QR code for your phone	L'app complète affiche un QR code pour votre téléphone
+The message box shows it and can skip it for one message.	La zone de saisie l'affiche et peut l'ignorer pour un message.
+The message could not be sent.	Le message n'a pas pu être envoyé.
+The microphone could not record this voice note.	Le micro n'a pas pu enregistrer ce message vocal.
+The omawhatsapp command, linked in ~/.local/bin.	La commande omawhatsapp, liée dans ~/.local/bin.
+The private voice draft could not be discarded.	Impossible d'abandonner le brouillon vocal privé.
+There is no chat with 	Il n'y a pas encore de discussion avec 
+These paths belong to something else, or were changed after the app wrote them, so the setup leaves them as they are. Move them away, then set up:\n	Ces chemins appartiennent à autre chose, ou ont été modifiés après leur écriture par l'app : l'installation les laisse tels quels. Déplacez-les, puis installez :\n
+The voice draft could not be prepared.	Impossible de préparer le brouillon vocal.
+The voice-note preview could not play.	Impossible de lire l'aperçu du message vocal.
+This copy was not installed with omarchy plugin add, so it updates from where it came from.	Cette copie n'a pas été installée avec omarchy plugin add : elle se met à jour depuis sa source.
+This message was deleted	Ce message a été supprimé
+This only deletes the local chat history from this device, not from Meta's WhatsApp servers. The chat will disappear from OmaWhatsApp and will only reappear if a new message is received.	Cela supprime seulement l'historique local de cet appareil, pas des serveurs WhatsApp de Meta. La discussion disparaîtra d'OmaWhatsApp et ne reviendra qu'à la réception d'un nouveau message.
+This screen goes on by itself once wacli is installed. A wacli of your own at ~/.local/bin/wacli is used first.	Cet écran avance tout seul une fois wacli installé. Un wacli personnel dans ~/.local/bin/wacli est utilisé en priorité.
+This system cannot record WhatsApp-compatible OGG/Opus audio.	Ce système ne peut pas enregistrer d'audio OGG/Opus compatible WhatsApp.
+Thu	jeu.
+Thursday	jeudi
+Time format	Format de l'heure
+Today	Aujourd'hui
+To reply	À répondre
+Travel & places	Voyages et lieux
+Try a different search	Essayez une autre recherche
+Try again	Réessayer
+Try opening this file in another player	Essayez d'ouvrir ce fichier dans un autre lecteur
+Tue	mar.
+Tuesday	mardi
+Type a phone number with its country code.	Tapez un numéro avec l'indicatif du pays.
+Unarchive chat	Désarchiver la discussion
+Unlink 	Dissocier 
+Unlink…	Dissocier…
+Unmute notifications	Réactiver les notifications
+Unpin chat	Désépingler la discussion
+Unread	Non lues
+Unread count in the bar	Compteur de non-lus dans la barre
+Unstar	Retirer des favoris
+Update in terminal…	Mettre à jour dans un terminal…
+Update not finished: the app is 	Mise à jour inachevée : l'app est en 
+Up to 	Jusqu'à 
+Use 1–64 letters, digits, dots, underscores, or hyphens.	Utilisez 1 à 64 lettres, chiffres, points, tirets bas ou tirets.
+Video	Vidéo
+Video preview unavailable	Aperçu vidéo indisponible
+Video ready	Vidéo prête
+Voice draft · offline	Brouillon vocal · hors ligne
+Voice draft ready	Brouillon vocal prêt
+Voice message	Message vocal
+Voice note could not be sent.	Le message vocal n'a pas pu être envoyé.
+Voice notes record only in a real chat	Les vocaux ne s'enregistrent que dans une vraie discussion
+Voice note unavailable	Message vocal indisponible
+Waiting for the message before it…	En attente du message précédent…
+Waiting for WhatsApp to connect.	En attente de la connexion à WhatsApp.
+Waiting for your phone…	En attente de votre téléphone…
+Waiting to go out from your phone	En attente d'envoi depuis votre téléphone
+Website	Site web
+Wed	mer.
+Wednesday	mercredi
+WhatsApp chat	Discussion WhatsApp
+WhatsApp could not change the read state.	WhatsApp n'a pas pu changer l'état de lecture.
+WhatsApp could not check that number.	WhatsApp n'a pas pu vérifier ce numéro.
+WhatsApp could not complete that request.	WhatsApp n'a pas pu terminer cette demande.
+WhatsApp could not delete that message.	WhatsApp n'a pas pu supprimer ce message.
+WhatsApp could not do that.	WhatsApp n'a pas pu faire cela.
+WhatsApp could not forward that message.	WhatsApp n'a pas pu transférer ce message.
+WhatsApp could not read the group settings.	WhatsApp n'a pas pu lire les réglages du groupe.
+WhatsApp did not add everyone: their privacy settings may require an invite link.	WhatsApp n'a pas ajouté tout le monde : leurs paramètres de confidentialité peuvent exiger un lien d'invitation.
+WhatsApp did not answer	WhatsApp n'a pas répondu
+WhatsApp did not answer.	WhatsApp n'a pas répondu.
+WhatsApp is busy with another request. Try again in a moment.	WhatsApp traite une autre demande. Réessayez dans un instant.
+WhatsApp may refuse older messages; if accepted, everyone loses the message.	WhatsApp peut refuser les messages anciens ; si c'est accepté, le message disparaît pour tous.
+WhatsApp media	Média WhatsApp
+WhatsApp member	Membre WhatsApp
+WhatsApp notifications muted	Notifications WhatsApp coupées
+WhatsApp notifications on	Notifications WhatsApp activées
+WhatsApp on your Omarchy desktop, kept on this computer.	WhatsApp sur votre bureau Omarchy, conservé sur cet ordinateur.
+With 	Avec 
+Yesterday	Hier
+You · 	Vous · 
+You ·	Vous ·
+You	Vous
+You: 	Vous : 
+You are no longer in this group	Vous ne faites plus partie de ce groupe
+Your chats and media are kept in a local copy, readable even offline.	Vos discussions et médias sont conservés dans une copie locale, lisible même hors ligne.
+You’re up to date	Vous êtes à jour
+Your existing session will be preserved as primary. A terminal will open for the new QR code.	Votre session actuelle restera la principale. Un terminal va s'ouvrir pour le nouveau QR code.
+Your local archive will appear here	Votre archive locale apparaîtra ici
+Your messages are syncing.	Vos messages se synchronisent.
+Your name for them	Votre nom pour eux
+Your name in bold on texts and captions, never on reactions, stickers or audio. 	Votre nom en gras sur les textes et légendes, jamais sur les réactions, stickers ou audios. 
+Your phone could not send it	Votre téléphone n'a pas pu l'envoyer
+Your saved chats are available.	Vos discussions enregistrées sont disponibles.
+Your wacli 	Votre wacli 
+ Applies to the account of the open chat.	 S'applique au compte de la discussion ouverte.
+  · archived	  · archivée
+ and 	 et 
+ and its helper 	 et son assistant 
+ and newer, tested with 	 et plus récent, testé avec 
+another version	une autre version
+ are 	 sont 
+ at 	 à 
+ attachments at once	 pièces jointes à la fois
+ · at the end	 · à la fin
+ · at the top	 · en haut
+alias removed	alias supprimé
+alias saved	alias enregistré
+cannot star	impossible de mettre en favori
+ chat photos could not be refreshed	 photos de profil n'ont pas pu être actualisées
+ chat photos refreshed	 photos de profil actualisées
+ chats	 discussions
+checking a number	vérification d'un numéro
+checking chat photos	vérification des photos de profil
+checking with WhatsApp…	vérification avec WhatsApp…
+copied 	copié 
+copied to clipboard	copié dans le presse-papiers
+ could not be 	 n'ont pas pu être 
+ could not be deleted	 n'ont pas pu être supprimés
+ could not be forwarded	 n'ont pas pu être transférés
+could not check	vérification impossible
+could not mark read · 	impossible de marquer comme lu · 
+could not mark unread · 	impossible de marquer comme non lu · 
+deleting 	suppression de 
+deleting a message	suppression d'un message
+ downloaded	 téléchargés
+ · Esc goes back	 · Échap pour revenir
+ expired on WhatsApp	 expirés sur WhatsApp
+exported 	exporté 
+ files	 fichiers
+ finished linking…	 a terminé l'association…
+ first.	 d'abord.
+forwarded to 	transféré à 
+forwarding a message	transfert d'un message
+forwarding to 	transfert vers 
+full app	app complète
+ groups in common	 groupes en commun
+ in a terminal, which asks first.	 dans un terminal, qui demande confirmation.
+ in the terminal	 dans le terminal
+in your contacts	dans vos contacts
+ is 	 : 
+ is not on WhatsApp	 n'est pas sur WhatsApp
+ is not on WhatsApp, so there is no chat to start.	 n'est pas sur WhatsApp : impossible de démarrer une discussion.
+ is older than this app supports. Update it with Omarchy's package manager:	 est plus ancien que ce que cette app prend en charge. Mettez-le à jour avec le gestionnaire de paquets d'Omarchy :
+last seen 	vu 
+ linked	 associé
+linking again means scanning a new QR code.	associer à nouveau implique de scanner un nouveau QR code.
+ message	 message
+message deleted	message supprimé
+ messages	 messages
+ messages?	 messages ?
+ messages deleted	 messages supprimés
+message sent to 	message envoyé à 
+ · middle-click to dismiss	 · clic du milieu pour fermer
+ missing attachment	 pièce jointe manquante
+ missing attachments	 pièces jointes manquantes
+ more	 de plus
+ new	 nouveaux
+ · no chat yet	 · pas encore de discussion
+not checked yet	pas encore vérifié
+not downloaded	non téléchargé
+nothing known	rien de connu
+notifications off · bar badge only	notifications coupées · pastille de la barre seulement
+notifications on · chat names only	notifications activées · noms des discussions seulement
+notifications on · shows message preview	notifications activées · avec aperçu du message
+not on WhatsApp	pas sur WhatsApp
+number copied	numéro copié
+ of 	 sur 
+offline archive	archive hors ligne
+offline · local archive stays available	hors ligne · l'archive locale reste disponible
+offline · viewing local archive	hors ligne · consultation de l'archive locale
+ of this chat	 de cette discussion
+online · background sync resumed	en ligne · synchro en arrière-plan reprise
+ · on WhatsApp	 · sur WhatsApp
+ on WhatsApp	 sur WhatsApp
+on WhatsApp	sur WhatsApp
+  ·  Open map ↗	  ·  Ouvrir la carte ↗
+ other chat	 autre discussion
+ other chats	 autres discussions
+ participant	 participant
+ participants	 participants
+pasted from clipboard	collé depuis le presse-papiers
+ people: 	 personnes : 
+ people are 	 personnes : 
+ person: 	 personne : 
+  ·  preview before sending	  ·  aperçu avant envoi
+primary is reserved for your existing account.	primary est réservé à votre compte existant.
+reading group settings	lecture des réglages du groupe
+recording audio…	enregistre un audio…
+ refreshed; 	 actualisées ; 
+ · right-click clears the badge	 · clic droit pour effacer la pastille
+ selected	 sélectionnés
+sending…	envoi…
+setting could not be changed	le réglage n'a pas pu être modifié
+settings could not be saved	les réglages n'ont pas pu être enregistrés
+settings saved privately on this device	réglages enregistrés en privé sur cet appareil
+ shared this contact. 	 a partagé ce contact. 
+starred 	mis en favori 
+ starred message	 message favori
+ starred messages	 messages favoris
+starred · on your other devices too	favori · aussi sur vos autres appareils
+starring a message	mise en favori d'un message
+starting a chat	démarrage d'une discussion
+ · supports 	 · prend en charge 
+tag added	étiquette ajoutée
+tag removed	étiquette supprimée
+the chat	la discussion
+this computer stops receiving its messages. The chats already here stay on disk; 	cet ordinateur ne reçoit plus ses messages. Les discussions déjà présentes restent sur le disque ; 
+ · try again	 · réessayer
+typing…	écrit…
+ unavailable	 indisponible
+ unread	 non lus
+ unread chat	 discussion non lue
+ unread chats	 discussions non lues
+ unread messages	 messages non lus
+unstarred 	retiré des favoris 
+updating the chat	mise à jour de la discussion
+updating the group	mise à jour du groupe
+voice notes record only in a real chat	les vocaux ne s'enregistrent que dans une vraie discussion
+ votes	 votes
+ with WhatsApp…	 avec WhatsApp…
+ yet: it starts with your first message.	 : elle commencera avec votre premier message.
+today	aujourd'hui
+yesterday	hier
+ddd, MMM d · 	ddd d MMM · 
+d MMM yyyy	d MMM yyyy

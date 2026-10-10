@@ -1,0 +1,1140 @@
+diff --git c/BarWidget.qml i/BarWidget.qml
+index a96ff26..0847d1d 100644
+--- c/BarWidget.qml
++++ i/BarWidget.qml
+@@ -53,7 +53,8 @@ BarWidget {
+   }
+ 
+   function formatted(date) {
+-    return Qt.formatDateTime(date, activeFormat.replace(/ww/g, Model.isoWeekLiteral(date.getFullYear(), date.getMonth(), date.getDate())))
++    // toLocaleString honours the system locale (French day/month names); Qt.formatDateTime is always English.
++    return date.toLocaleString(Qt.locale(), activeFormat.replace(/ww/g, Model.isoWeekLiteral(date.getFullYear(), date.getMonth(), date.getDate())))
+   }
+ 
+   // ---- Calendar popup. Shape contract for shell.summon/hide/toggle
+diff --git c/I18n.js i/I18n.js
+new file mode 100644
+index 0000000..d3e58cb
+--- /dev/null
++++ i/I18n.js
+@@ -0,0 +1,171 @@
++.pragma library
++
++// Local customization (Plugin Malleability record "french-translation"):
++// translates the panel's visible strings when the system locale is French.
++// Keys are the exact English source strings; anything missing stays English.
++// %1, %2 are filled in order by t().
++
++var fr = {
++  // Status lines
++  "Pulling latest changes from Google…": "Récupération des dernières modifications Google…",
++  "Pushing local changes to Google…": "Envoi des modifications locales vers Google…",
++  "Saving the event…": "Enregistrement de l'événement…",
++  "Saving changes…": "Enregistrement des modifications…",
++  "Checking sync status…": "Vérification de la synchronisation…",
++  "Extending cached calendar months…": "Extension du cache du calendrier…",
++  "Loading calendar…": "Chargement du calendrier…",
++  "This calendar is read-only": "Ce calendrier est en lecture seule",
++  "Google does not allow editing this special event type": "Google ne permet pas de modifier ce type d'événement",
++  "Enter an event title": "Saisissez un titre d'événement",
++  "Repeat count must be between 2 and 999": "Le nombre de répétitions doit être compris entre 2 et 999",
++  "Time must use HH:MM": "L'heure doit être au format HH:MM",
++  "Caldir runtime is not installed — run setup first": "Caldir n'est pas installé — lancez d'abord setup",
++  "Push pending local changes to Google? Click upload again to confirm": "Envoyer les modifications locales vers Google ? Cliquez à nouveau sur l'envoi pour confirmer",
++  "Calendar refresh failed": "Échec de l'actualisation du calendrier",
++  "Google pull failed": "Échec de la récupération depuis Google",
++  "Could not extend the local calendar cache": "Impossible d'étendre le cache local du calendrier",
++  "Could not initialize the calendar cache": "Impossible d'initialiser le cache du calendrier",
++  "Saved event locally — Push to Google when you are ready": "Événement enregistré localement — envoyez-le vers Google quand vous voulez",
++  "Saved recurring event locally — Push to Google when you are ready": "Événement récurrent enregistré localement — envoyez-le vers Google quand vous voulez",
++  "Could not save the local event": "Impossible d'enregistrer l'événement local",
++  "Deleted %1 locally — Push to Google when you are ready": "Suppression locale de %1 effectuée — envoyez vers Google quand vous voulez",
++  "Updated %1 locally — Push to Google when you are ready": "Modification locale de %1 effectuée — envoyez vers Google quand vous voulez",
++  "Could not change the local event": "Impossible de modifier l'événement local",
++  "Pushed local changes to Google": "Modifications locales envoyées vers Google",
++  "Could not push local changes to Google": "Impossible d'envoyer les modifications vers Google",
++  "Google push cancelled": "Envoi vers Google annulé",
++  "Deletion cancelled": "Suppression annulée",
++  "No pending calendar changes": "Aucune modification en attente",
++  "Could not check sync status": "Impossible de vérifier la synchronisation",
++  "Could not read Google OAuth settings": "Impossible de lire les réglages OAuth Google",
++  "Could not send the event notification": "Impossible d'envoyer la notification de l'événement",
++  "Not pulled from Google yet": "Pas encore récupéré depuis Google",
++  "Pulled from Google": "Récupéré depuis Google",
++  "Last pull: %1": "Dernière récupération : %1",
++
++  // Delete / edit flow
++  "the event": "l'événement",
++  "the whole series": "toute la série",
++  "this event": "cet événement",
++  "Delete this event locally?": "Supprimer cet événement localement ?",
++  "Delete this whole recurring series locally?": "Supprimer toute la série récurrente localement ?",
++  "Delete only this event from the recurring series?": "Supprimer uniquement cet événement de la série ?",
++  "Click again to confirm deleting %1": "Cliquez à nouveau pour confirmer la suppression de %1",
++  "Delete event locally": "Supprimer l'événement localement",
++  "Delete the whole recurring series locally": "Supprimer toute la série localement",
++  "Delete only this event locally": "Supprimer uniquement cet événement localement",
++
++  // Repeat options
++  "ONCE": "UNE FOIS",
++  "DAILY": "CHAQUE JOUR",
++  "WEEKLY": "CHAQUE SEMAINE",
++  "MONTHLY": "CHAQUE MOIS",
++  "YEARLY": "CHAQUE ANNÉE",
++  "Repeat %1": "Répéter : %1",
++
++  // Agenda and events
++  "No events": "Aucun événement",
++  "Untitled event": "Événement sans titre",
++  "ALL DAY": "JOURNÉE",
++  "Starting in 5 minutes": "Commence dans 5 minutes",
++  "Starting now": "Commence maintenant",
++  " at %1": " à %1",
++  "JOIN": "REJOINDRE",
++  "Edit this event or the whole series locally": "Modifier cet événement ou toute la série localement",
++  "Edit event locally": "Modifier l'événement localement",
++  "Add local event on %1": "Ajouter un événement local le %1",
++  "Check sync status": "Vérifier la synchronisation",
++  "Pull latest from Google": "Récupérer depuis Google",
++  "Click again to push local changes to Google": "Cliquez à nouveau pour envoyer les modifications vers Google",
++  "Push local changes to Google (confirmation required)": "Envoyer les modifications vers Google (confirmation requise)",
++
++  // Event editor
++  "APPLY TO": "APPLIQUER À",
++  "Apply edits or deletion only to this event": "Appliquer la modification ou la suppression à cet événement seulement",
++  "THIS EVENT": "CET ÉVÉNEMENT",
++  "Apply edits or deletion to the whole recurring series": "Appliquer la modification ou la suppression à toute la série",
++  "WHOLE SERIES": "TOUTE LA SÉRIE",
++  "SCHEDULE": "PLANIFICATION",
++  "REPEAT": "RÉPÉTITION",
++  "A recurring series cannot be converted to one event here": "Une série récurrente ne peut pas être convertie en événement unique ici",
++  "Create one event": "Créer un seul événement",
++  "TIMES": "FOIS",
++  "Event title": "Titre de l'événement",
++  "All-day event (click for a time)": "Toute la journée (cliquer pour une heure)",
++  "Timed event (click for all day)": "À heure fixe (cliquer pour toute la journée)",
++  "Save local changes": "Enregistrer les modifications locales",
++  "Save locally": "Enregistrer localement",
++  "Cancel": "Annuler",
++  "Descriptions cannot be changed for Google birthdays": "La description des anniversaires Google ne peut pas être modifiée",
++  "Description (optional)": "Description (facultative)",
++
++  // Header, navigation, Memento Mori
++  "Back to today": "Revenir à aujourd'hui",
++  "Close calendar settings": "Fermer les réglages du calendrier",
++  "Calendar settings": "Réglages du calendrier",
++  "BORN": "NAISSANCE",
++  "LIVE TO": "VIVRA JUSQU'À",
++  "LIFE": "VIE",
++  "Start weeks on %1": "Semaine commençant le %1",
++  "Previous month": "Mois précédent",
++  "Next month": "Mois suivant",
++
++  // Google setup
++  "Google sync needs setup. Choose how Google OAuth should work:": "La synchronisation Google doit être configurée. Choisissez le mode OAuth :",
++  "Direct setup": "Configuration directe",
++  "Use your own Google Cloud OAuth client": "Utiliser votre propre client OAuth Google Cloud",
++  "Hosted setup": "Configuration hébergée",
++  "Use caldir.org's hosted OAuth relay": "Utiliser le relais OAuth hébergé par caldir.org",
++  "Direct uses your own Google Cloud client and keeps token refreshes between this machine and Google. Hosted needs no client, but caldir.org relays sign-in and future token refreshes.": "Le mode direct utilise votre propre client Google Cloud : les jetons restent entre cette machine et Google. Le mode hébergé ne demande aucun client, mais caldir.org relaie la connexion et les renouvellements de jetons.",
++
++  // Settings
++  "CALENDAR SETTINGS": "RÉGLAGES DU CALENDRIER",
++  "PANEL POSITION": "POSITION DU PANNEAU",
++  "SCREEN CENTER": "CENTRE DE L'ÉCRAN",
++  "Center the calendar vertically on the screen": "Centrer verticalement le calendrier à l'écran",
++  "ORIGINAL": "D'ORIGINE",
++  "Place the calendar beside the bar like Omarchy's clock": "Placer le calendrier contre la barre, comme l'horloge d'Omarchy",
++  "The calendar is vertically centered on the screen.": "Le calendrier est centré verticalement à l'écran.",
++  "The calendar uses Omarchy's original clock position beside the bar.": "Le calendrier utilise la position d'origine de l'horloge d'Omarchy, contre la barre.",
++  "GOOGLE OAUTH": "OAUTH GOOGLE",
++  "Checking authentication…": "Vérification de l'authentification…",
++  "Not connected": "Non connecté",
++  "Hosted": "Hébergé",
++  "Direct": "Direct",
++  "HOSTED": "HÉBERGÉ",
++  "Authenticate through caldir.org": "S'authentifier via caldir.org",
++  "DIRECT": "DIRECT",
++  "Authenticate directly with your Google OAuth client": "S'authentifier directement avec votre client OAuth Google",
++  "Switching signs out the current session and opens the interactive setup flow. Stored direct credentials are preserved.": "Changer de mode déconnecte la session actuelle et ouvre la configuration interactive. Les identifiants directs enregistrés sont conservés.",
++  "CALENDAR COLORS": "COULEURS DU CALENDRIER",
++  "GOOGLE": "GOOGLE",
++  "THEME": "THÈME",
++  "Follows the active Omarchy theme": "Suit le thème Omarchy actif",
++  "REMOVE PLUGIN": "SUPPRIMER LE PLUGIN",
++  "Remove this widget, restore the built-in clock in the bar center, and choose whether to delete Google credentials and calendar data.": "Retirer ce widget, remettre l'horloge d'origine au centre de la barre, et choisir de supprimer ou non les identifiants Google et les données du calendrier.",
++  "Remove plugin and data…": "Supprimer le plugin et les données…",
++  "Open the interactive full-uninstall flow": "Ouvrir la désinstallation complète interactive",
++
++  // Qt date patterns (not words): French puts the day before the month
++  "W": "S",
++  "D": "J",
++  "Y": "A",
++  "MMMM d": "d MMMM",
++  "dddd, MMMM d": "dddd d MMMM"
++}
++
++function isFrench() {
++  return String(Qt.locale().name).indexOf("fr") === 0
++}
++
++function t(source) {
++  var text = isFrench() && fr.hasOwnProperty(source) ? fr[source] : source
++  for (var i = 1; i < arguments.length; i++)
++    text = text.split("%" + i).join(String(arguments[i]))
++  return text
++}
++
++// Qt's French abbreviations carry a dot ("lun."); the calendar header wants bare words.
++function shortDay(locale, weekday) {
++  return String(locale.dayName(weekday, 1 /* Locale.ShortFormat */)).replace(/\.$/, "")
++}
+diff --git c/Panel.qml i/Panel.qml
+index a7b7fea..33d15b4 100644
+--- c/Panel.qml
++++ i/Panel.qml
+@@ -6,6 +6,7 @@ import qs.Commons
+ import qs.Ui
+ import "Model.js" as Model
+ import "CalendarModel.js" as CalendarModel
++import "I18n.js" as I18n
+ 
+ // The clock's calendar popup: a month grid with ISO week numbers, built to
+ // sit beside the weather panel — same hero-over-detail composition, same
+@@ -73,7 +74,7 @@ Panel {
+   // The interface is English throughout, so day names are not taken from the
+   // system locale. Where the week starts still is: that is a regional
+   // convention rather than a translation, and it stays overridable above.
+-  readonly property var labelLocale: Qt.locale("en_US")
++  readonly property var labelLocale: Qt.locale()
+   readonly property string nextWeekStartLabel: labelLocale.dayName(Model.toggledWeekStart(weekStart), Locale.LongFormat)
+   readonly property var weekdays: Model.weekdayOrder(weekStart)
+   readonly property var weeks: Model.monthGrid(viewYear, viewMonth, weekStart, todayKey)
+@@ -100,17 +101,17 @@ Panel {
+   readonly property bool calendarBusy: calendarPulling || calendarPushing
+     || calendarCreating || calendarMutating || calendarStatusLoading
+   readonly property string calendarBusyLabel: calendarPulling
+-    ? "Pulling latest changes from Google…"
+-    : calendarPushing ? "Pushing local changes to Google…"
+-    : calendarCreating ? "Saving the event…"
+-    : calendarMutating ? "Saving changes…"
+-    : "Checking sync status…"
++    ? I18n.t("Pulling latest changes from Google…")
++    : calendarPushing ? I18n.t("Pushing local changes to Google…")
++    : calendarCreating ? I18n.t("Saving the event…")
++    : calendarMutating ? I18n.t("Saving changes…")
++    : I18n.t("Checking sync status…")
+   readonly property bool calendarProgressVisible: calendarBusy
+     || calendarAutoPrefetching || (calendarLoading && calendarEvents.length === 0)
+   readonly property string calendarProgressLabel: calendarBusy
+     ? calendarBusyLabel
+-    : calendarAutoPrefetching ? "Extending cached calendar months…"
+-    : "Loading calendar…"
++    : calendarAutoPrefetching ? I18n.t("Extending cached calendar months…")
++    : I18n.t("Loading calendar…")
+   property string calendarPullOutput: ""
+   property string calendarAutoPrefetchOutput: ""
+   property string calendarScheduledRefreshOutput: ""
+@@ -156,11 +157,11 @@ Panel {
+   property string expandedAgendaInstanceId: ""
+   property real calendarFrozenTop: -1
+   readonly property var eventRepeatOptions: [
+-    { value: "none", icon: "1", label: "ONCE" },
+-    { value: "daily", icon: "D", label: "DAILY" },
+-    { value: "weekly", icon: "W", label: "WEEKLY" },
+-    { value: "monthly", icon: "M", label: "MONTHLY" },
+-    { value: "yearly", icon: "Y", label: "YEARLY" }
++    { value: "none", icon: "1", label: I18n.t("ONCE") },
++    { value: "daily", icon: I18n.t("D"), label: I18n.t("DAILY") },
++    { value: "weekly", icon: I18n.t("W"), label: I18n.t("WEEKLY") },
++    { value: "monthly", icon: "M", label: I18n.t("MONTHLY") },
++    { value: "yearly", icon: I18n.t("Y"), label: I18n.t("YEARLY") }
+   ]
+   readonly property var agendaEvents: calendarEventsByDate[agendaDateKey]
+     ? calendarEventsByDate[agendaDateKey].events : []
+@@ -459,11 +460,11 @@ Panel {
+ 
+   function startEditingEvent(event) {
+     if (!event || event.calendar_read_only) {
+-      calendarSyncMessage = "This calendar is read-only"
++      calendarSyncMessage = I18n.t("This calendar is read-only")
+       return
+     }
+     if (event.event_read_only) {
+-      calendarSyncMessage = "Google does not allow editing this special event type"
++      calendarSyncMessage = I18n.t("Google does not allow editing this special event type")
+       return
+     }
+     selectedAgendaEvent = event
+@@ -504,7 +505,7 @@ Panel {
+     if (!/[0-9]/.test(time)) time = ""
+     var repeatCount = String(eventRepeatCountField.text || "").trim()
+     if (title === "") {
+-      calendarSyncMessage = "Enter an event title"
++      calendarSyncMessage = I18n.t("Enter an event title")
+       eventTitleField.forceActiveFocus()
+       return
+     }
+@@ -512,12 +513,12 @@ Panel {
+       || (selectedAgendaEvent.recurring && eventMutationScope === "series")
+     if (scheduleEditable && repeatCount !== ""
+         && (!/^\d+$/.test(repeatCount) || Number(repeatCount) < 2 || Number(repeatCount) > 999)) {
+-      calendarSyncMessage = "Repeat count must be between 2 and 999"
++      calendarSyncMessage = I18n.t("Repeat count must be between 2 and 999")
+       eventRepeatCountField.forceActiveFocus()
+       return
+     }
+     if (!root.eventAllDayEditing && !/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(time)) {
+-      calendarSyncMessage = "Time must use HH:MM"
++      calendarSyncMessage = I18n.t("Time must use HH:MM")
+       eventTimeField.forceActiveFocus()
+       return
+     }
+@@ -577,32 +578,32 @@ Panel {
+   }
+ 
+   function mutationTargetLabel() {
+-    if (!selectedAgendaEvent || !selectedAgendaEvent.recurring) return "the event"
+-    return eventMutationScope === "series" ? "the whole series" : "this event"
++    if (!selectedAgendaEvent || !selectedAgendaEvent.recurring) return I18n.t("the event")
++    return eventMutationScope === "series" ? I18n.t("the whole series") : I18n.t("this event")
+   }
+ 
+   function deleteConfirmationMessage() {
+     if (!selectedAgendaEvent || !selectedAgendaEvent.recurring)
+-      return "Delete this event locally?"
++      return I18n.t("Delete this event locally?")
+     if (eventMutationScope === "series")
+-      return "Delete this whole recurring series locally?"
+-    return "Delete only this event from the recurring series?"
++      return I18n.t("Delete this whole recurring series locally?")
++    return I18n.t("Delete only this event from the recurring series?")
+   }
+ 
+   function deleteTooltipText() {
+     if (calendarDeleteArmed)
+-      return "Click again to confirm deleting " + mutationTargetLabel()
++      return I18n.t("Click again to confirm deleting %1", mutationTargetLabel())
+     if (!selectedAgendaEvent || !selectedAgendaEvent.recurring)
+-      return "Delete event locally"
++      return I18n.t("Delete event locally")
+     return eventMutationScope === "series"
+-      ? "Delete the whole recurring series locally"
+-      : "Delete only this event locally"
++      ? I18n.t("Delete the whole recurring series locally")
++      : I18n.t("Delete only this event locally")
+   }
+ 
+   function eventRepeatLabel() {
+     for (var i = 0; i < eventRepeatOptions.length; i++)
+       if (eventRepeatOptions[i].value === eventRepeatMode) return eventRepeatOptions[i].label
+-    return "ONCE"
++    return I18n.t("ONCE")
+   }
+ 
+   function recurrenceModeFromRule(rule) {
+@@ -633,9 +634,9 @@ Panel {
+   function eventTooltip(dateKey) {
+     var entry = calendarEventsByDate[dateKey]
+     var events = entry ? entry.events : []
+-    if (events.length === 0) return "No events"
++    if (events.length === 0) return I18n.t("No events")
+     var titles = []
+-    for (var i = 0; i < events.length && i < 3; i++) titles.push(String(events[i].title || "Untitled event"))
++    for (var i = 0; i < events.length && i < 3; i++) titles.push(String(events[i].title || I18n.t("Untitled event")))
+     if (events.length > titles.length) titles.push("+" + (events.length - titles.length) + " more")
+     return titles.join("\n")
+   }
+@@ -705,7 +706,7 @@ Panel {
+   }
+ 
+   function eventTimeLabel(event) {
+-    if (event && event.all_day) return "ALL DAY"
++    if (event && event.all_day) return I18n.t("ALL DAY")
+     var start = new Date(event && event.start)
+     if (isNaN(start.getTime())) return ""
+     return Qt.formatTime(start, "HH:mm")
+@@ -796,15 +797,15 @@ Panel {
+     if (notified[notifyKey]) return false
+     notified[notifyKey] = new Date().toISOString()
+ 
+-    var title = String(event.title || "Untitled event")
++    var title = String(event.title || I18n.t("Untitled event"))
+     var timeLabel = root.eventTimeLabel(event)
+     var headline, description
+     if (when === "5") {
+-      headline = "Starting in 5 minutes"
+-      description = title + (timeLabel !== "" ? " at " + timeLabel : "")
++      headline = I18n.t("Starting in 5 minutes")
++      description = title + (timeLabel !== "" ? I18n.t(" at %1", timeLabel) : "")
+     } else {
+       headline = title
+-      description = "Starting now" + (timeLabel !== "" ? " at " + timeLabel : "")
++      description = I18n.t("Starting now") + (timeLabel !== "" ? I18n.t(" at %1", timeLabel) : "")
+     }
+     var links = CalendarModel.eventMeetingLinks(event)
+     if (links.length > 0) description += "\n" + links[0]
+@@ -815,9 +816,9 @@ Panel {
+   }
+ 
+   function lastPullLabel() {
+-    if (lastCalendarPull === "") return "Not pulled from Google yet"
++    if (lastCalendarPull === "") return I18n.t("Not pulled from Google yet")
+     var date = new Date(lastCalendarPull)
+-    return isNaN(date.getTime()) ? "Pulled from Google" : "Last pull: " + Qt.formatDateTime(date, "d MMM, HH:mm")
++    return isNaN(date.getTime()) ? I18n.t("Pulled from Google") : I18n.t("Last pull: %1", date.toLocaleString(Qt.locale(), "d MMM, HH:mm"))
+   }
+ 
+   function pullFromGoogle() {
+@@ -825,11 +826,11 @@ Panel {
+         || calendarScheduledRefreshProcess.running) return
+     if (root.calendarRuntimeMissing) {
+       root.probeCalendarRuntime()
+-      root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++      root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       return
+     }
+     calendarPulling = true
+-    calendarSyncMessage = "Pulling latest changes from Google…"
++    calendarSyncMessage = I18n.t("Pulling latest changes from Google…")
+     calendarPullOutput = ""
+     calendarPullProcess.command = [
+       root.helperPath("calendar-pull"), "--pending", prefetchStartDate(), prefetchEndDate()
+@@ -841,12 +842,12 @@ Panel {
+     if (calendarPushProcess.running) return
+     if (root.calendarRuntimeMissing) {
+       root.probeCalendarRuntime()
+-      root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++      root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       return
+     }
+     if (!calendarPushArmed) {
+       calendarPushArmed = true
+-      calendarSyncMessage = "Push pending local changes to Google? Click upload again to confirm"
++      calendarSyncMessage = I18n.t("Push pending local changes to Google? Click upload again to confirm")
+       calendarPushConfirmation.restart()
+       return
+     }
+@@ -854,7 +855,7 @@ Panel {
+     calendarPushArmed = false
+     calendarPushing = true
+     calendarPushOutput = ""
+-    calendarSyncMessage = "Pushing local changes to Google…"
++    calendarSyncMessage = I18n.t("Pushing local changes to Google…")
+     calendarPushProcess.command = [root.helperPath("calendar-push"), "--confirm"]
+     calendarPushProcess.running = true
+   }
+@@ -879,7 +880,7 @@ Panel {
+   function prefetchRangeLabel() {
+     var start = new Date(prefetchStartDate() + "T12:00:00")
+     var end = new Date(prefetchEndDate() + "T12:00:00")
+-    return Qt.formatDate(start, "MMM yyyy") + "–" + Qt.formatDate(end, "MMM yyyy")
++    return start.toLocaleDateString(Qt.locale(), "MMM yyyy") + "–" + end.toLocaleDateString(Qt.locale(), "MMM yyyy")
+   }
+ 
+   // When browsing reaches the last two cached months, fetch another window
+@@ -915,11 +916,11 @@ Panel {
+     if (calendarStatusProcess.running) return
+     if (root.calendarRuntimeMissing) {
+       root.probeCalendarRuntime()
+-      root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++      root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       return
+     }
+     calendarStatusLoading = true
+-    calendarSyncMessage = "Checking sync status…"
++    calendarSyncMessage = I18n.t("Checking sync status…")
+     calendarStatusOutput = ""
+     calendarStatusEntries = []
+     calendarStatusProcess.command = [root.helperPath("calendar-status")]
+@@ -1034,7 +1035,7 @@ Panel {
+ 
+   // English short day names, matching the rest of the interface.
+   function weekdayLabel(weekday) {
+-    return String(labelLocale.dayName(weekday, Locale.ShortFormat)).toUpperCase()
++    return I18n.shortDay(labelLocale, weekday).toUpperCase()
+   }
+ 
+   SystemClock {
+@@ -1067,7 +1068,7 @@ Panel {
+     onExited: function(exitCode) {
+       root.calendarLoading = false
+       if (exitCode !== 0 && root.calendarError === "")
+-        root.calendarError = "Calendar refresh failed"
++        root.calendarError = I18n.t("Calendar refresh failed")
+       if (exitCode === 0) root.maybeExtendCalendarCache()
+     }
+   }
+@@ -1092,9 +1093,9 @@ Panel {
+         calendarReloadAfterPull.restart()
+       } else if (exitCode === 127) {
+         root.calendarRuntimeMissing = true
+-        root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++        root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       } else {
+-        root.calendarSyncMessage = root.calendarPullOutput || "Google pull failed"
++        root.calendarSyncMessage = root.calendarPullOutput || I18n.t("Google pull failed")
+       }
+     }
+   }
+@@ -1114,7 +1115,7 @@ Panel {
+       if (exitCode === 0)
+         calendarReloadAfterPull.restart()
+       else
+-        root.calendarSyncMessage = root.calendarAutoPrefetchOutput || "Could not extend the local calendar cache"
++        root.calendarSyncMessage = root.calendarAutoPrefetchOutput || I18n.t("Could not extend the local calendar cache")
+     }
+   }
+ 
+@@ -1135,9 +1136,9 @@ Panel {
+       } else if (exitCode === 127) {
+         root.calendarRuntimeMissing = true
+         if (root.calendarEvents.length === 0)
+-          root.calendarError = "Caldir runtime is not installed — run setup first"
++          root.calendarError = I18n.t("Caldir runtime is not installed — run setup first")
+       } else if (root.calendarEvents.length === 0) {
+-        root.calendarError = root.calendarScheduledRefreshOutput || "Could not initialize the calendar cache"
++        root.calendarError = root.calendarScheduledRefreshOutput || I18n.t("Could not initialize the calendar cache")
+       }
+     }
+   }
+@@ -1157,11 +1158,11 @@ Panel {
+       if (exitCode === 0) {
+         root.editingEvent = false
+         root.calendarSyncMessage = root.eventRepeatMode === "none"
+-          ? "Saved event locally — Push to Google when you are ready"
+-          : "Saved recurring event locally — Push to Google when you are ready"
++          ? I18n.t("Saved event locally — Push to Google when you are ready")
++          : I18n.t("Saved recurring event locally — Push to Google when you are ready")
+         calendarReloadAfterPull.restart()
+       } else {
+-        root.calendarSyncMessage = root.calendarCreateOutput || "Could not save the local event"
++        root.calendarSyncMessage = root.calendarCreateOutput || I18n.t("Could not save the local event")
+       }
+     }
+   }
+@@ -1185,11 +1186,11 @@ Panel {
+         root.selectedAgendaEvent = null
+         root.calendarDeleteArmed = false
+         root.calendarSyncMessage = action === "delete"
+-          ? "Deleted " + target + " locally — Push to Google when you are ready"
+-          : "Updated " + target + " locally — Push to Google when you are ready"
++          ? I18n.t("Deleted %1 locally — Push to Google when you are ready", target)
++          : I18n.t("Updated %1 locally — Push to Google when you are ready", target)
+         calendarReloadAfterPull.restart()
+       } else {
+-        root.calendarSyncMessage = root.calendarMutationOutput || "Could not change the local event"
++        root.calendarSyncMessage = root.calendarMutationOutput || I18n.t("Could not change the local event")
+       }
+     }
+   }
+@@ -1207,15 +1208,15 @@ Panel {
+     onExited: function(exitCode) {
+       root.calendarPushing = false
+       if (exitCode === 0) {
+-        root.calendarSyncMessage = "Pushed local changes to Google"
++        root.calendarSyncMessage = I18n.t("Pushed local changes to Google")
+         root.calendarStatusEntries = []
+         root.calendarStatusOutput = ""
+         calendarReloadAfterPull.restart()
+       } else if (exitCode === 127) {
+         root.calendarRuntimeMissing = true
+-        root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++        root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       } else {
+-        root.calendarSyncMessage = root.calendarPushOutput || "Could not push local changes to Google"
++        root.calendarSyncMessage = root.calendarPushOutput || I18n.t("Could not push local changes to Google")
+       }
+     }
+   }
+@@ -1227,7 +1228,7 @@ Panel {
+     onTriggered: {
+       root.calendarPushArmed = false
+       if (!root.calendarPushing)
+-        root.calendarSyncMessage = "Google push cancelled"
++        root.calendarSyncMessage = I18n.t("Google push cancelled")
+     }
+   }
+ 
+@@ -1238,7 +1239,7 @@ Panel {
+     onTriggered: {
+       root.calendarDeleteArmed = false
+       if (!root.calendarMutating)
+-        root.calendarSyncMessage = "Deletion cancelled"
++        root.calendarSyncMessage = I18n.t("Deletion cancelled")
+     }
+   }
+ 
+@@ -1296,12 +1297,12 @@ Panel {
+       root.calendarStatusLoading = false
+       if (exitCode === 0) {
+         root.calendarStatusEntries = root.parseCalendarStatus(root.calendarStatusOutput)
+-        root.calendarSyncMessage = root.calendarStatusEntries.length > 0 ? "" : "No pending calendar changes"
++        root.calendarSyncMessage = root.calendarStatusEntries.length > 0 ? "" : I18n.t("No pending calendar changes")
+       } else if (exitCode === 127) {
+         root.calendarRuntimeMissing = true
+-        root.calendarSyncMessage = "Caldir runtime is not installed — run setup first"
++        root.calendarSyncMessage = I18n.t("Caldir runtime is not installed — run setup first")
+       } else {
+-        root.calendarSyncMessage = root.calendarStatusOutput || "Could not check sync status"
++        root.calendarSyncMessage = root.calendarStatusOutput || I18n.t("Could not check sync status")
+       }
+     }
+   }
+@@ -1327,7 +1328,7 @@ Panel {
+     onExited: function(exitCode) {
+       root.authStatusLoading = false
+       if (exitCode !== 0) {
+-        root.authStatusError = root.authStatusOutput || "Could not read Google OAuth settings"
++        root.authStatusError = root.authStatusOutput || I18n.t("Could not read Google OAuth settings")
+         return
+       }
+       try {
+@@ -1336,7 +1337,7 @@ Panel {
+         root.authSession = String(status.session || "")
+         root.authStatusError = ""
+       } catch (error) {
+-        root.authStatusError = "Could not read Google OAuth settings"
++        root.authStatusError = I18n.t("Could not read Google OAuth settings")
+       }
+     }
+   }
+@@ -1351,7 +1352,7 @@ Panel {
+     }
+     onExited: function(exitCode) {
+       if (exitCode !== 0)
+-        root.calendarSyncMessage = "Could not send the event notification"
++        root.calendarSyncMessage = I18n.t("Could not send the event notification")
+     }
+   }
+ 
+@@ -1474,7 +1475,7 @@ Panel {
+               Text {
+                 id: heroDate
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: Qt.formatDate(root.today, "MMMM d")
++                text: root.today.toLocaleDateString(Qt.locale(), I18n.t("MMMM d"))
+                 color: heroMouse.containsMouse
+                   ? Style.hoverStateColor(root.contentForeground, Color.accent)
+                   : root.contentForeground
+@@ -1497,7 +1498,7 @@ Panel {
+ 
+               PanelToolTip {
+                 visible: heroMouse.containsMouse
+-                text: "Back to today"
++                text: I18n.t("Back to today")
+                 fontFamily: root.contentFontFamily
+               }
+             }
+@@ -1506,7 +1507,7 @@ Panel {
+               anchors.top: parent.top
+               anchors.right: parent.right
+               iconText: "󰒓"
+-              tooltipText: root.settingsOpen ? "Close calendar settings" : "Calendar settings"
++              tooltipText: root.settingsOpen ? I18n.t("Close calendar settings") : I18n.t("Calendar settings")
+               foreground: root.settingsOpen ? Color.accent : root.contentForeground
+               fontFamily: root.contentFontFamily
+               focusable: true
+@@ -1541,7 +1542,7 @@ Panel {
+ 
+                 Text {
+                   anchors.verticalCenter: parent.verticalCenter
+-                  text: "BORN"
++                  text: I18n.t("BORN")
+                   color: Qt.darker(root.contentForeground, 1.5)
+                   font.family: root.contentFontFamily
+                   font.pixelSize: Style.font.bodySmall
+@@ -1564,7 +1565,7 @@ Panel {
+                   anchors.verticalCenter: parent.verticalCenter
+                   anchors.verticalCenterOffset: 0
+                   leftPadding: Style.space(6)
+-                  text: "LIVE TO"
++                  text: I18n.t("LIVE TO")
+                   color: Qt.darker(root.contentForeground, 1.5)
+                   font.family: root.contentFontFamily
+                   font.pixelSize: Style.font.bodySmall
+@@ -1649,7 +1650,7 @@ Panel {
+                 id: lifeLabel
+                 anchors.left: parent.left
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: "LIFE"
++                text: I18n.t("LIFE")
+                 color: Qt.darker(root.contentForeground, 1.5)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.bodySmall
+@@ -1747,7 +1748,7 @@ Panel {
+ 
+                   Text {
+                     anchors.centerIn: parent
+-                    text: "W"
++                    text: I18n.t("W")
+                     color: weekStartMouse.containsMouse
+                       ? Style.hoverStateColor(root.contentForeground, Color.accent)
+                       : Qt.darker(root.contentForeground, 1.9)
+@@ -1767,7 +1768,7 @@ Panel {
+ 
+                   PanelToolTip {
+                     visible: weekStartMouse.containsMouse
+-                    text: "Start weeks on " + root.nextWeekStartLabel
++                    text: I18n.t("Start weeks on %1", root.nextWeekStartLabel)
+                     fontFamily: root.contentFontFamily
+                   }
+                 }
+@@ -1923,7 +1924,7 @@ Panel {
+                 // "MAY 2026" and a "SEPTEMBER 2026".
+                 width: Style.space(130)
+                 horizontalAlignment: Text.AlignHCenter
+-                text: Qt.formatDate(root.viewDate, "MMMM yyyy").toUpperCase()
++                text: root.viewDate.toLocaleDateString(Qt.locale(), "MMMM yyyy").toUpperCase()
+                 color: Qt.darker(root.contentForeground, 1.4)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.body
+@@ -1937,7 +1938,7 @@ Panel {
+                 anchors.leftMargin: -Style.space(8)
+                 anchors.verticalCenter: parent.verticalCenter
+                 iconText: "󰅁"
+-                tooltipText: "Previous month"
++                tooltipText: I18n.t("Previous month")
+                 foreground: root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 onClicked: root.moveMonth(-1)
+@@ -1948,7 +1949,7 @@ Panel {
+                 anchors.rightMargin: -Style.space(8)
+                 anchors.verticalCenter: parent.verticalCenter
+                 iconText: "󰅂"
+-                tooltipText: "Next month"
++                tooltipText: I18n.t("Next month")
+                 foreground: root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 onClicked: root.moveMonth(1)
+@@ -1983,7 +1984,7 @@ Panel {
+                 id: agendaLabel
+                 anchors.left: parent.left
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: Qt.formatDate(new Date(root.agendaDateKey + "T12:00:00"), "dddd, MMMM d").toUpperCase()
++                text: new Date(root.agendaDateKey + "T12:00:00").toLocaleDateString(Qt.locale(), I18n.t("dddd, MMMM d")).toUpperCase()
+                 color: Qt.darker(root.contentForeground, 1.5)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.bodySmall
+@@ -1997,7 +1998,7 @@ Panel {
+ 
+                 PanelActionButton {
+                   iconText: "󰐕"
+-                  tooltipText: "Add local event on " + root.agendaDateKey
++                  tooltipText: I18n.t("Add local event on %1", root.agendaDateKey)
+                   foreground: root.contentForeground
+                   fontFamily: root.contentFontFamily
+                   enabled: !root.editingEvent && !root.calendarCreating && !root.calendarMutating
+@@ -2006,7 +2007,7 @@ Panel {
+ 
+                 PanelActionButton {
+                   iconText: "󰄬"
+-                  tooltipText: "Check sync status"
++                  tooltipText: I18n.t("Check sync status")
+                   foreground: root.contentForeground
+                   fontFamily: root.contentFontFamily
+                   enabled: !root.calendarStatusLoading && !root.calendarPulling
+@@ -2016,7 +2017,7 @@ Panel {
+ 
+                 PanelActionButton {
+                   iconText: "↓"
+-                  tooltipText: "Pull latest from Google"
++                  tooltipText: I18n.t("Pull latest from Google")
+                   foreground: root.contentForeground
+                   fontFamily: root.contentFontFamily
+                   enabled: !root.calendarPulling && !root.calendarAutoPrefetching
+@@ -2027,8 +2028,8 @@ Panel {
+                 PanelActionButton {
+                   iconText: "↑"
+                   tooltipText: root.calendarPushArmed
+-                    ? "Click again to push local changes to Google"
+-                    : "Push local changes to Google (confirmation required)"
++                    ? I18n.t("Click again to push local changes to Google")
++                    : I18n.t("Push local changes to Google (confirmation required)")
+                   foreground: root.calendarPushArmed ? Color.accent : root.contentForeground
+                   fontFamily: root.contentFontFamily
+                   enabled: !root.calendarPushing && !root.calendarPulling
+@@ -2068,7 +2069,7 @@ Panel {
+                 Text {
+                   width: parent.width
+                   wrapMode: Text.Wrap
+-                  text: "Google sync needs setup. Choose how Google OAuth should work:"
++                  text: I18n.t("Google sync needs setup. Choose how Google OAuth should work:")
+                   color: root.barForeground
+                   font.family: root.contentFontFamily
+                   font.pixelSize: Style.font.caption
+@@ -2078,8 +2079,8 @@ Panel {
+                   spacing: Style.space(6)
+ 
+                   Button {
+-                    text: "Direct setup"
+-                    tooltipText: "Use your own Google Cloud OAuth client"
++                    text: I18n.t("Direct setup")
++                    tooltipText: I18n.t("Use your own Google Cloud OAuth client")
+                     fontSize: Style.font.caption
+                     horizontalPadding: Style.space(6)
+                     verticalPadding: Style.space(2)
+@@ -2090,8 +2091,8 @@ Panel {
+                   }
+ 
+                   Button {
+-                    text: "Hosted setup"
+-                    tooltipText: "Use caldir.org's hosted OAuth relay"
++                    text: I18n.t("Hosted setup")
++                    tooltipText: I18n.t("Use caldir.org's hosted OAuth relay")
+                     fontSize: Style.font.caption
+                     horizontalPadding: Style.space(6)
+                     verticalPadding: Style.space(2)
+@@ -2105,7 +2106,7 @@ Panel {
+                 Text {
+                   width: parent.width
+                   wrapMode: Text.Wrap
+-                  text: "Direct uses your own Google Cloud client and keeps token refreshes between this machine and Google. Hosted needs no client, but caldir.org relays sign-in and future token refreshes."
++                  text: I18n.t("Direct uses your own Google Cloud client and keeps token refreshes between this machine and Google. Hosted needs no client, but caldir.org relays sign-in and future token refreshes.")
+                   color: Qt.darker(root.barForeground, 1.5)
+                   font.family: root.contentFontFamily
+                   font.pixelSize: Style.font.caption
+@@ -2170,7 +2171,7 @@ Panel {
+ 
+               Text {
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: "APPLY TO"
++                text: I18n.t("APPLY TO")
+                 color: Qt.darker(root.contentForeground, 1.6)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.caption
+@@ -2179,7 +2180,7 @@ Panel {
+ 
+               PanelActionButton {
+                 iconText: "1"
+-                tooltipText: "Apply edits or deletion only to this event"
++                tooltipText: I18n.t("Apply edits or deletion only to this event")
+                 foreground: root.eventMutationScope === "instance" ? Color.accent : root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 bordered: true
+@@ -2194,7 +2195,7 @@ Panel {
+ 
+               Text {
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: "THIS EVENT"
++                text: I18n.t("THIS EVENT")
+                 color: root.eventMutationScope === "instance" ? Color.accent : Qt.darker(root.contentForeground, 1.5)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.caption
+@@ -2202,7 +2203,7 @@ Panel {
+ 
+               PanelActionButton {
+                 iconText: "∞"
+-                tooltipText: "Apply edits or deletion to the whole recurring series"
++                tooltipText: I18n.t("Apply edits or deletion to the whole recurring series")
+                 foreground: root.eventMutationScope === "series" ? Color.accent : root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 bordered: true
+@@ -2217,7 +2218,7 @@ Panel {
+ 
+               Text {
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: "WHOLE SERIES"
++                text: I18n.t("WHOLE SERIES")
+                 color: root.eventMutationScope === "series" ? Color.accent : Qt.darker(root.contentForeground, 1.5)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.caption
+@@ -2231,7 +2232,7 @@ Panel {
+ 
+               Text {
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: root.selectedAgendaEvent ? "SCHEDULE" : "REPEAT"
++                text: root.selectedAgendaEvent ? I18n.t("SCHEDULE") : I18n.t("REPEAT")
+                 color: Qt.darker(root.contentForeground, 1.6)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.caption
+@@ -2245,8 +2246,8 @@ Panel {
+                   required property var modelData
+                   iconText: modelData.icon
+                   tooltipText: modelData.value === "none"
+-                    ? (root.selectedAgendaEvent ? "A recurring series cannot be converted to one event here" : "Create one event")
+-                    : "Repeat " + modelData.label.toLowerCase()
++                    ? (root.selectedAgendaEvent ? I18n.t("A recurring series cannot be converted to one event here") : I18n.t("Create one event"))
++                    : I18n.t("Repeat %1", modelData.label.toLowerCase())
+                   foreground: root.eventRepeatMode === modelData.value ? Color.accent : root.contentForeground
+                   fontFamily: root.contentFontFamily
+                   bordered: true
+@@ -2273,7 +2274,7 @@ Panel {
+               Text {
+                 visible: root.eventRepeatMode !== "none"
+                 anchors.verticalCenter: parent.verticalCenter
+-                text: "TIMES"
++                text: I18n.t("TIMES")
+                 color: Qt.darker(root.contentForeground, 1.6)
+                 font.family: root.contentFontFamily
+                 font.pixelSize: Style.font.caption
+@@ -2308,7 +2309,7 @@ Panel {
+                 width: parent.width - eventAllDayButton.width - eventTimeField.width
+                   - eventSaveButton.width - eventCancelButton.width
+                   - (root.selectedAgendaEvent ? eventDeleteButton.width + Style.space(6) : 0) - Style.space(24)
+-                placeholderText: "Event title"
++                placeholderText: I18n.t("Event title")
+                 foreground: root.contentForeground
+                 font.family: root.contentFontFamily
+                 Keys.onReturnPressed: root.saveLocalEvent()
+@@ -2319,7 +2320,7 @@ Panel {
+               PanelActionButton {
+                 id: eventAllDayButton
+                 iconText: root.eventAllDayEditing ? "A" : "T"
+-                tooltipText: root.eventAllDayEditing ? "All-day event (click for a time)" : "Timed event (click for all day)"
++                tooltipText: root.eventAllDayEditing ? I18n.t("All-day event (click for a time)") : I18n.t("Timed event (click for all day)")
+                 foreground: root.eventAllDayEditing ? Color.accent : root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 fontSize: Style.font.caption
+@@ -2341,7 +2342,7 @@ Panel {
+               TextField {
+                 id: eventTimeField
+                 width: Style.space(70)
+-                placeholderText: root.eventAllDayEditing ? "ALL DAY" : "HH:MM"
++                placeholderText: root.eventAllDayEditing ? I18n.t("ALL DAY") : "HH:MM"
+                 foreground: root.contentForeground
+                 font.family: root.contentFontFamily
+                 enabled: !root.eventAllDayEditing && !root.calendarCreating && !root.calendarMutating
+@@ -2380,7 +2381,7 @@ Panel {
+               PanelActionButton {
+                 id: eventSaveButton
+                 iconText: "󰄬"
+-                tooltipText: root.selectedAgendaEvent ? "Save local changes" : "Save locally"
++                tooltipText: root.selectedAgendaEvent ? I18n.t("Save local changes") : I18n.t("Save locally")
+                 foreground: root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 focusable: true
+@@ -2404,7 +2405,7 @@ Panel {
+               PanelActionButton {
+                 id: eventCancelButton
+                 iconText: "󰅖"
+-                tooltipText: "Cancel"
++                tooltipText: I18n.t("Cancel")
+                 foreground: root.contentForeground
+                 fontFamily: root.contentFontFamily
+                 focusable: true
+@@ -2419,8 +2420,8 @@ Panel {
+               width: parent.width
+               height: visible ? Style.space(52) : 0
+               placeholderText: root.eventTitleOnlyEditing
+-                ? "Descriptions cannot be changed for Google birthdays"
+-                : "Description (optional)"
++                ? I18n.t("Descriptions cannot be changed for Google birthdays")
++                : I18n.t("Description (optional)")
+               color: root.contentForeground
+               placeholderTextColor: Qt.darker(root.contentForeground, 1.6)
+               selectionColor: Style.selectionFillFor(root.contentForeground, Color.accent)
+@@ -2464,7 +2465,7 @@ Panel {
+ 
+             Text {
+               visible: !root.editingEvent && !root.calendarLoading && root.calendarError === "" && root.agendaEvents.length === 0
+-              text: "No events"
++              text: I18n.t("No events")
+               color: Qt.darker(root.contentForeground, 1.7)
+               font.family: root.contentFontFamily
+               font.pixelSize: Style.font.bodySmall
+@@ -2541,7 +2542,7 @@ Panel {
+                         anchors.right: descriptionChevron.visible ? descriptionChevron.left : parent.right
+                         anchors.rightMargin: descriptionChevron.visible ? Style.space(5) : 0
+                         elide: Text.ElideRight
+-                        text: String(modelData.title || "Untitled event")
++                        text: String(modelData.title || I18n.t("Untitled event"))
+                         color: agendaEvent.isNextEvent
+                           ? Style.selectedStateColor(root.contentForeground, Color.accent)
+                           : root.contentForeground
+@@ -2574,7 +2575,7 @@ Panel {
+ Button {
+                       id: joinAgendaButton
+                       visible: agendaEvent.meetingLinks.length > 0
+-                      text: "JOIN"
++                      text: I18n.t("JOIN")
+                       fontSize: Style.font.caption
+                       horizontalPadding: Style.space(6)
+                       verticalPadding: Style.space(3)
+@@ -2593,7 +2594,7 @@ Button {
+                       id: editAgendaButton
+                       visible: !modelData.calendar_read_only && !modelData.event_read_only
+                       iconText: "󰏫"
+-                      tooltipText: modelData.recurring ? "Edit this event or the whole series locally" : "Edit event locally"
++                      tooltipText: modelData.recurring ? I18n.t("Edit this event or the whole series locally") : I18n.t("Edit event locally")
+                       foreground: root.contentForeground
+                       fontFamily: root.contentFontFamily
+                       enabled: !root.calendarCreating && !root.calendarMutating
+@@ -2715,7 +2716,7 @@ Button {
+               id: settingsTitle
+               anchors.left: parent.left
+               anchors.verticalCenter: parent.verticalCenter
+-              text: "CALENDAR SETTINGS"
++              text: I18n.t("CALENDAR SETTINGS")
+               color: root.contentForeground
+               font.family: root.contentFontFamily
+               font.pixelSize: Style.font.bodySmall
+@@ -2728,7 +2729,7 @@ Button {
+               anchors.right: parent.right
+               anchors.verticalCenter: parent.verticalCenter
+               iconText: "󰅖"
+-              tooltipText: "Close calendar settings"
++              tooltipText: I18n.t("Close calendar settings")
+               foreground: root.contentForeground
+               fontFamily: root.contentFontFamily
+               focusable: true
+@@ -2745,7 +2746,7 @@ Button {
+ 
+           Text {
+             width: parent.width
+-            text: "PANEL POSITION"
++            text: I18n.t("PANEL POSITION")
+             color: Qt.darker(root.contentForeground, 1.5)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2758,8 +2759,8 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "screen-center"
+               currentValue: root.calendarPanelPosition
+-              text: "SCREEN CENTER"
+-              tooltipText: "Center the calendar vertically on the screen"
++              text: I18n.t("SCREEN CENTER")
++              tooltipText: I18n.t("Center the calendar vertically on the screen")
+               foreground: root.contentForeground
+               background: Color.popups.background
+               accent: Color.accent
+@@ -2771,8 +2772,8 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "original"
+               currentValue: root.calendarPanelPosition
+-              text: "ORIGINAL"
+-              tooltipText: "Place the calendar beside the bar like Omarchy's clock"
++              text: I18n.t("ORIGINAL")
++              tooltipText: I18n.t("Place the calendar beside the bar like Omarchy's clock")
+               foreground: root.contentForeground
+               background: Color.popups.background
+               accent: Color.accent
+@@ -2786,8 +2787,8 @@ Button {
+             width: parent.width
+             wrapMode: Text.Wrap
+             text: root.calendarPanelPosition === "screen-center"
+-              ? "The calendar is vertically centered on the screen."
+-              : "The calendar uses Omarchy's original clock position beside the bar."
++              ? I18n.t("The calendar is vertically centered on the screen.")
++              : I18n.t("The calendar uses Omarchy's original clock position beside the bar.")
+             color: Qt.darker(root.contentForeground, 1.65)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2802,7 +2803,7 @@ Button {
+ 
+           Text {
+             width: parent.width
+-            text: "GOOGLE OAUTH"
++            text: I18n.t("GOOGLE OAUTH")
+             color: Qt.darker(root.contentForeground, 1.5)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2813,10 +2814,10 @@ Button {
+             width: parent.width
+             wrapMode: Text.Wrap
+             text: root.authStatusLoading
+-              ? "Checking authentication…"
++              ? I18n.t("Checking authentication…")
+               : root.authStatusError !== "" ? root.authStatusError
+-              : root.authMode === "none" ? "Not connected"
+-              : (root.authMode === "hosted" ? "Hosted" : "Direct")
++              : root.authMode === "none" ? I18n.t("Not connected")
++              : (root.authMode === "hosted" ? I18n.t("Hosted") : I18n.t("Direct"))
+                 + (root.authSession !== "" ? " · " + root.authSession : "")
+             color: Qt.darker(root.contentForeground, 1.35)
+             font.family: root.contentFontFamily
+@@ -2829,8 +2830,8 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "hosted"
+               currentValue: root.authMode
+-              text: "HOSTED"
+-              tooltipText: "Authenticate through caldir.org"
++              text: I18n.t("HOSTED")
++              tooltipText: I18n.t("Authenticate through caldir.org")
+               foreground: root.contentForeground
+               background: Color.popups.background
+               accent: Color.accent
+@@ -2843,8 +2844,8 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "direct"
+               currentValue: root.authMode
+-              text: "DIRECT"
+-              tooltipText: "Authenticate directly with your Google OAuth client"
++              text: I18n.t("DIRECT")
++              tooltipText: I18n.t("Authenticate directly with your Google OAuth client")
+               foreground: root.contentForeground
+               background: Color.popups.background
+               accent: Color.accent
+@@ -2858,7 +2859,7 @@ Button {
+           Text {
+             width: parent.width
+             wrapMode: Text.Wrap
+-            text: "Switching signs out the current session and opens the interactive setup flow. Stored direct credentials are preserved."
++            text: I18n.t("Switching signs out the current session and opens the interactive setup flow. Stored direct credentials are preserved.")
+             color: Qt.darker(root.contentForeground, 1.65)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2873,7 +2874,7 @@ Button {
+ 
+           Text {
+             width: parent.width
+-            text: "CALENDAR COLORS"
++            text: I18n.t("CALENDAR COLORS")
+             color: Qt.darker(root.contentForeground, 1.5)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2886,7 +2887,7 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "google"
+               currentValue: root.calendarColorMode
+-              text: "GOOGLE"
++              text: I18n.t("GOOGLE")
+               tooltipText: "Use each calendar's color from Google Calendar"
+               foreground: root.contentForeground
+               background: Color.popups.background
+@@ -2899,7 +2900,7 @@ Button {
+             SettingsChoiceButton {
+               optionValue: "theme"
+               currentValue: root.calendarColorMode
+-              text: "THEME"
++              text: I18n.t("THEME")
+               tooltipText: "Use two colors from the active Omarchy theme"
+               foreground: root.contentForeground
+               background: Color.popups.background
+@@ -2932,7 +2933,7 @@ Button {
+ 
+             Text {
+               anchors.verticalCenter: parent.verticalCenter
+-              text: "Follows the active Omarchy theme"
++              text: I18n.t("Follows the active Omarchy theme")
+               color: Qt.darker(root.contentForeground, 1.65)
+               font.family: root.contentFontFamily
+               font.pixelSize: Style.font.caption
+@@ -2948,7 +2949,7 @@ Button {
+ 
+           Text {
+             width: parent.width
+-            text: "REMOVE PLUGIN"
++            text: I18n.t("REMOVE PLUGIN")
+             color: Qt.darker(root.contentForeground, 1.5)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+@@ -2958,15 +2959,15 @@ Button {
+           Text {
+             width: parent.width
+             wrapMode: Text.Wrap
+-            text: "Remove this widget, restore the built-in clock in the bar center, and choose whether to delete Google credentials and calendar data."
++            text: I18n.t("Remove this widget, restore the built-in clock in the bar center, and choose whether to delete Google credentials and calendar data.")
+             color: Qt.darker(root.contentForeground, 1.65)
+             font.family: root.contentFontFamily
+             font.pixelSize: Style.font.caption
+           }
+ 
+           Button {
+-            text: "Remove plugin and data…"
+-            tooltipText: "Open the interactive full-uninstall flow"
++            text: I18n.t("Remove plugin and data…")
++            tooltipText: I18n.t("Open the interactive full-uninstall flow")
+             foreground: root.contentForeground
+             background: Color.popups.background
+             accent: Color.accent
