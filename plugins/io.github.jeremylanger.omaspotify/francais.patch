@@ -77,15 +77,6 @@ index c97b235..bcf1bb7 100644
  // already reads every liked song builds the index as it goes. Only ids are
  // kept; the tracks themselves are fetched when an artist page opens.
  function likedTrackIdsByArtist(payload) {
-@@ -994,7 +995,7 @@ function cappedPageSnapshot(snapshot, limit) {
-     } else out[key] = value
-   }
-   for (var i = 0; i < cut.length; i++) {
--    var cursor = cut[i] === "items" ? "next" : cut[i] + "Next"
-+    var cursor = cut[i] === "items" ? "next" : cut[i] + I18n.t("Next")
-     if (out.hasOwnProperty(cursor)) out[cursor] = ""
-   }
-   return out
 @@ -1276,10 +1277,10 @@ function shortcutKeycap(sequence) {
    if (lower === "right") return "→"
    if (lower === "up") return "↑"
@@ -5087,8 +5078,7 @@ index f3f89ae..23db4f1 100644
            finishJob(job, xhr.status, payload, error, xhr)
          }
          xhr.open(String(job.method || "GET"), url)
--        xhr.setRequestHeader("Authorization", "Bearer " + token)
-+        xhr.setRequestHeader(I18n.t("Authorization"), "Bearer " + token)
+         xhr.setRequestHeader("Authorization", "Bearer " + token)
          if (job.body !== undefined && job.body !== null) {
            xhr.setRequestHeader("Content-Type", "application/json")
            xhr.send(JSON.stringify(job.body))

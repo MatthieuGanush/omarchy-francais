@@ -3,7 +3,10 @@ d = sys.argv[1]
 import os; os.chdir(d)
 src = open('I18n.js').read()
 keys = re.findall(r'^\s*"((?:[^"\\]|\\.)*)":', src, re.M)
-skip = {"MMMM d", "dddd, MMMM d", "ddd, MMM d · ", "d MMM yyyy"}
+# "Authorization" est aussi un nom d'en-tête HTTP : traduit, Spotify refuse tout (2026-11-25)
+skip = {"MMMM d", "dddd, MMMM d", "ddd, MMM d · ", "d MMM yyyy", "Authorization"}
+# "Next" sert aussi à fabriquer des clés de pagination (albumsNext…) dans Api.js
+skip.add("Next")
 keys = sorted([k for k in keys if k not in skip], key=len, reverse=True)
 total = 0
 for f in sorted(glob.glob('*.qml') + glob.glob('*.js')):
